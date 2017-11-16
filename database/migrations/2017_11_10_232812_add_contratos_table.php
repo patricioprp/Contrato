@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+
 class AddContratosTable extends Migration
 {
     /**
@@ -14,7 +15,7 @@ class AddContratosTable extends Migration
     public function up()
     {
         Schema::create('contratos', function (Blueprint $table) {
-
+             
             $table->increments('id');
             $table->string('fondos_origen');
             $table->integer('indicador');
@@ -29,6 +30,7 @@ class AddContratosTable extends Migration
 
             $table->foreign('empleado_id')->references('id')->on('empleados');
             $table->timestamps();
+
         });
 
 
