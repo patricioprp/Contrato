@@ -14,6 +14,7 @@ class AddContratosTable extends Migration
     public function up()
     {
         Schema::create('contratos', function (Blueprint $table) {
+
             $table->increments('id');
             $table->string('fondos_origen');
             $table->integer('indicador');
@@ -29,7 +30,10 @@ class AddContratosTable extends Migration
             $table->foreign('empleado_id')->references('id')->on('empleados');
             $table->timestamps();
         });
+
+
     }
+
 
     /**
      * Reverse the migrations.
