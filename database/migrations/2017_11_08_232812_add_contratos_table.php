@@ -26,9 +26,7 @@ class AddContratosTable extends Migration
             $table->string('actividad');
             $table->date('desde');
             $table->date('hasta');
-            $table->integer('distribution_id')->unsigned();
-
-            $table->foreign('distribution_id')->references('id')->on('distributions');
+          
             $table->timestamps();
 
         });
