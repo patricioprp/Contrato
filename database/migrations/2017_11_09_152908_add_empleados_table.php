@@ -19,7 +19,7 @@ class AddEmpleadosTable extends Migration
             $table->bigInteger('dni')->unique();
             $table->string('nombre');
             $table->string('apellido');
-            $table->enum('programa',['MDP'],['UEDP'],['PRODERI'],['PROICSA']);
+            $table->enum('programa',['MDP','UEDP','PRODERI','PROICSA']);
             $table->integer('distribution_id')->unsigned(); /*unsigned es para setear el campo de la tabla*/
 
             $table->foreign('distribution_id')->references('id')->on('distributions');

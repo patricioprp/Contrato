@@ -21,12 +21,12 @@ class AddContratosTable extends Migration
             $table->integer('indicador');
             $table->double('monto',8,2);
             $table->integer('duracion');
-            $table->enum('estado',['finalizado'],['activo'],['proximo']);
+            $table->enum('estado',['finalizado','activo','proximo']);
             $table->string('tipo');
             $table->string('actividad');
             $table->date('desde');
             $table->date('hasta');
-          
+
             $table->timestamps();
 
         });
