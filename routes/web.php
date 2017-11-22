@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['prefix' => 'empleados'], function(){
+
+Route::get('view/{id}', [
+  'uses' => 'TestController@view',
+  'as' => 'empleadosView'
+]);
+});
