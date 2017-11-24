@@ -22,7 +22,7 @@ class AddEmpleadosTable extends Migration
             $table->enum('programa',['MDP','UEDP','PRODERI','PROICSA']);
             $table->integer('distribution_id')->unsigned(); /*unsigned es para setear el campo de la tabla*/
 
-            $table->foreign('distribution_id')->references('id')->on('distributions');
+            $table->foreign('distribution_i')->references('id')->on('distributions');
 
 
             $table->timestamps();
