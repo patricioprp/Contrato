@@ -10,6 +10,8 @@ class TestController extends Controller
     public function view($id)
     {
         $empleado = Empleado::find($id);
-        dd($empleado);
+
+
+        return view('test.index',['empleado'=>$empleado]);
     }
 }
