@@ -13,4 +13,7 @@ class Empleado extends Model
     public function distribution(){
       return $this->belongsTo('\App\Distribution');
     }
+    public function contratos(){
+        return $this->hasMany('\App\Contrato');
+    }
 }

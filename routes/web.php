@@ -21,3 +21,10 @@ Route::get('view/{id}', [
   'as' => 'empleadosView'
 ]);
 });
+Route::group(['prefix' => 'distributions'], function(){
+
+  Route::get('view/{id}', [
+    'uses' => 'DistributionController@view',
+    'as' => 'distributionView'
+  ]);
+});

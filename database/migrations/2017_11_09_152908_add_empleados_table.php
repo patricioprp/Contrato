@@ -38,6 +38,17 @@ class AddEmpleadosTable extends Migration
 
            $table->timestamps();
 });
+       Schema::create('distribution_empleado', function(Blueprint $table){
+         $table->increments('id');
+         $table->integer('distribution_id')->unsigned();
+         $table->integer('empleado_id')->unsigned();
+
+         $table->foreign('distribution_id')->references('id')->on('distributions');
+         $table->foreign('empleado_id')->references('id')->on('empleados');
+
+         $table->timestamps();
+       });
+
     }
 
     /**
