@@ -14,6 +14,6 @@ class Empleado extends Model
       return $this->belongsTo('\App\Distribution');
     }
     public function contratos(){
-        return $this->hasMany('\App\Contrato');
+        return $this->belongsToMany('\App\Contrato');
     }
 }
