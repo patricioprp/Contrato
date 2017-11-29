@@ -5,3 +5,5 @@ hola codigo facilito
 <h2>{{$empleado->nombre}}  {{$empleado->apellido}}</h2>
 <h2>{{$empleado->programa}}</h2>
 <h2>{{$empleado->distribution->nombre}}</h2>
+
+{{($empleado->contratos)}}
