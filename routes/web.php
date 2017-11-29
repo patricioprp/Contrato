@@ -27,4 +27,10 @@ Route::group(['prefix' => 'distributions'], function(){
     'uses' => 'DistributionController@view',
     'as' => 'distributionView'
   ]);
+
+});
+Route::group(['prefix' => 'admin'], function(){
+
+Route::resource('distribution','DistributionController');
+
 });
