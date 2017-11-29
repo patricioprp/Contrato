@@ -1,4 +1,4 @@
-hola codigo facilito
+
 
 <h2>{{$empleado->id}}</h2>
 <h3>{{$empleado->dni}}</h3>
@@ -6,4 +6,4 @@ hola codigo facilito
 <h2>{{$empleado->programa}}</h2>
 <h2>{{$empleado->distribution->nombre}}</h2>
 
-{{($empleado->contratos)}}
+{{$empleado->contratos}}
