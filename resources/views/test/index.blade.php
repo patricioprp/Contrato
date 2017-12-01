@@ -1,5 +1,5 @@
 @include('admin.template.main')
-@yield('title','Listar Empleados')
+<title>@yield('title','Listar Empleados')</title>
 
 
 
@@ -12,7 +12,7 @@
       </div>
 
       <!-- Table -->
-      <table class="table">
+      <table class="table table-bordered table-condensed table-striped table-responsive table-hover">
         <tr>
           <td>#</td>
           <td>Fondo de Origen</td>
