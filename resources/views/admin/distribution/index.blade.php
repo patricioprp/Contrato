@@ -2,7 +2,7 @@
 @section('title','Listado de Reparticiones')
 @section('content')
 
-{{dd($reparticiones)}}
+
 
   <table class="table">
     <thead>

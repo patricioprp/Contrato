@@ -32,7 +32,13 @@
             <td>{{$cont->indicador}}</td>
             <td>{{$cont->monto}}</td>
             <td>{{$cont->duracion}}</td>
-            <td>{{$cont->estado}}</td>
+            @if ($cont->estado == "activo")
+               <td class="success">{{$cont->estado}}</td>
+            @elseif ($cont->estado == "proximo")
+               <td class="warning">{{$cont->estado}}</td>
+            @else
+              <td class="danger">{{$cont->estado}}</td>
+            @endif
             <td>{{$cont->tipo}}</td>
             <td>{{$cont->actividad}}</td>
             <td>{{$cont->desde}}</td>
