@@ -12,6 +12,6 @@ class TestController extends Controller
         $empleado = Empleado::find($id);
 
 
-        return view('test.index',['empleado'=>$empleado]);
+        return view('test.index')->withEmpleado($empleado);
     }
 }

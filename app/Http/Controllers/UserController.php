@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Empleado;
+use App\User;
 use Illuminate\Http\Request;
 
-class EmpleadoController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.user.create');
     }
 
     /**
@@ -41,10 +41,10 @@ class EmpleadoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Empleado  $empleado
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Empleado $empleado)
+    public function show(User $user)
     {
         //
     }
@@ -52,10 +52,10 @@ class EmpleadoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Empleado  $empleado
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empleado $empleado)
+    public function edit(User $user)
     {
         //
     }
@@ -64,10 +64,10 @@ class EmpleadoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Empleado  $empleado
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empleado $empleado)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -75,10 +75,10 @@ class EmpleadoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Empleado  $empleado
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empleado $empleado)
+    public function destroy(User $user)
     {
         //
     }
