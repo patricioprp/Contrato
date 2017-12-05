@@ -4,7 +4,7 @@
 
 
 
-  <table class="table">
+  <table class="table table-bordered table-condensed table-striped table-responsive table-hover">
     <thead>
       <th>ID</th>
       <th>NOMBRE</th>
@@ -18,7 +18,8 @@
            <td><a href="" class="btn btn-danger"></a> <a href="" class="btn btn-warning"></a></td>
          </tr>
       @endforeach
+
     </tbody>
   </table>
-
+{!! $reparticiones->render() !!}
 @endsection
