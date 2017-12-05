@@ -18,7 +18,8 @@
            <td><a href="" class="btn btn-danger"></a> <a href="" class="btn btn-warning"></a></td>
          </tr>
       @endforeach
+
     </tbody>
   </table>
-
+{!! $reparticiones->render() !!}
 @endsection

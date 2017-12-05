@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 
+
 class UserController extends Controller
 {
     /**
@@ -14,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::orderBy('id','ASC')->paginate(3);
+        return view('admin.user.index')->with('users',$users);
     }
 
     /**
@@ -35,7 +37,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User($request->all());
+        $user->password = bcrypt($request->password);
+        $user->save();
+        dd('Usuario creado');
     }
 
     /**
