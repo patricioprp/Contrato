@@ -4,7 +4,7 @@
 
 
 
-  <table class="table">
+  <table class="table table-condensed table-bordered table-bordered table-responsive">
     <thead>
       <th>ID</th>
       <th>NOMBRE</th>
