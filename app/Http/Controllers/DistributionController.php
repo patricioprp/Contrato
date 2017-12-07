@@ -33,6 +33,7 @@ class distributionController extends Controller
 
       $reparticion = new Distribution($request->all());
       $reparticion->save();
-      return view('admin.distribution.index');
-          }
+      //return view('admin.distribution.index');
+      return redirect(route('distribution.index'));
+    }
 }

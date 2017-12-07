@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Empleado;
+use App\Distribution;
 use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
@@ -14,7 +15,8 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+      $empleados = Empleado::orderBy('id','ASC')->paginate(3);
+      return view('admin.empleado.index')->with('empleados',$empleados);
     }
 
     /**
@@ -24,7 +26,8 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
+      $reparticiones = Distribution::pluck('nombre','id');
+        return view('admin.empleado.create')->with('reparticiones',$reparticiones);
     }
 
     /**
@@ -35,7 +38,9 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $empleado = new Empleado($request->all());
+      $empleado->save();
+      dd('Empleado creado');
     }
 
     /**

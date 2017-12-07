@@ -1,6 +1,7 @@
 @extends('admin.template.main')
 @section('title','Lista de Usuarios')
 @section('content')
+<button type="button" class="btn btn-primary"><a href="{{ asset('admin/user/create')}}"><font color="white">Nuevo</font></a></button>
   <table class="table table-bordered table-condensed table-striped table-responsive table-hover">
     <thead>
       <th>ID</th>

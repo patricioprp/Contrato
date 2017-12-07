@@ -24,7 +24,7 @@ class ContratoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.contrato.create');
     }
 
     /**
@@ -35,7 +35,9 @@ class ContratoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $contrato = new Contrato($request->all());
+      $contrato->save();
+      return view('admin.contrato.index');
     }
 
     /**
