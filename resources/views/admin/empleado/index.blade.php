@@ -6,7 +6,7 @@
   <body>
     <div class="panel panel-default">
       <!-- Default panel contents -->
-      <div class="panel-heading"><h3><p>Informacion del Empleado: <h2>{{$empleado->nombre}}  {{$empleado->apellido}}  |  Reparticion:{{$empleado->distribution->nombre}} </h2></p></h3></div>
+      <div class="panel-heading"><h3><p>Informacion del Empleado: <h2>{{$empleados->nombre}}  {{$empleados->apellido}}  |  Reparticion: {{$empleados->distribution->nombre}}</h2></p></h3></div>
       <div class="panel-body">
         <h3><p>Informacion del Contrato</p></h3>
       </div>
@@ -26,7 +26,7 @@
           <td>Hasta</td>
         </tr>
         <tr>
-          @foreach ($empleado->contratos as $cont)
+          @foreach ($empleados->contratos as $cont)
             <td>{{$cont->id}}</td>
             <td>{{$cont->fondos_origen}}</td>
             <td>{{$cont->indicador}}</td>
@@ -46,4 +46,5 @@
           @endforeach
         </tr>
       </table>
+      {!! $empleados->render() !!}
     </div>

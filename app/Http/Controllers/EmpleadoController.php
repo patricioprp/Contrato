@@ -14,7 +14,8 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+      $empleados = Empleado::orderBy('id','ASC')->paginate(3);
+      return view('admin.empleado.index')->with('empleados',$empleados);
     }
 
     /**
@@ -24,7 +25,7 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.empleado.create');
     }
 
     /**
@@ -35,7 +36,9 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $empleado = new Empleado($request->all());
+      $empleado->save();
+      dd('Empleado creado');
     }
 
     /**
