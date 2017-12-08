@@ -1,51 +1,31 @@
-@include('admin.template.main')
-<title>@yield('title','Listar Empleados')</title>
+@extends('admin.template.main')
+@section('title','Listado de Contratista')
+@section('content')
+<button type="button" class="btn btn-primary"><a href="{{ asset('admin/empleado/create')}}"><font color="white">Nuevo</font></a></button>
+  <table class="table table-condensed table-bordered table-bordered table-responsive">
+    <thead>
+      <th>#</th>
+      <th>DNI</th>
+      <th>NOMBRE</th>
+      <th>APELLIDO</th>
+      <th>PROGRAMA</th>
+      <th>REPARTICION</th>
+      <th>Accion</th>
+    </thead>
+    <tbody>
+      @foreach ($empleados as $empleado)
+         <tr>
+           <td>{{$empleado->id}}</td>
+           <td>{{$empleado->dni}}</td>
+           <td>{{$empleado->nombre}}</td>
+           <td>{{$empleado->apellido}}</td>
+           <td>{{$empleado->programa}}</td>
+           <td>{{$empleado->distribution->nombre}}</td>
+           <td><a href="" class="btn btn-danger"></a> <a href="" class="btn btn-warning"></a> <a href="" class="btn btn-primary"></a></td>
+         </tr>
+      @endforeach
 
-
-
-  <body>
-    <button type="button" class="btn btn-primary"><a href="{{ asset('admin/empleado/create')}}"><font color="white">Nuevo</font></a></button>
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading"><h3><p>Informacion del Contratista: <h2>{{$empleados->nombre}}  {{$empleados->apellido}}  |  Reparticion: {{$empleados->distribution->nombre}}</h2></p></h3></div>
-      <div class="panel-body">
-        <h3><p>Informacion del Contrato</p></h3>
-      </div>
-
-      <!-- Table -->
-      <table class="table table-bordered table-condensed table-striped table-responsive table-hover">
-        <tr>
-          <td>#</td>
-          <td>Fondo de Origen</td>
-          <td>Indicador(dias restante)</td>
-          <td>Monto Total($)</td>
-          <td>Duracion</td>
-          <td>Estado</td>
-          <td>Tipo</td>
-          <td>Actividad</td>
-          <td>Desde</td>
-          <td>Hasta</td>
-        </tr>
-        <tr>
-          @foreach ($empleados->contratos as $cont)
-            <td>{{$cont->id}}</td>
-            <td>{{$cont->fondos_origen}}</td>
-            <td>{{$cont->indicador}}</td>
-            <td>{{$cont->monto}}</td>
-            <td>{{$cont->duracion}}</td>
-            @if ($cont->estado == "activo")
-               <td class="success">{{$cont->estado}}</td>
-            @elseif ($cont->estado == "proximo")
-               <td class="warning">{{$cont->estado}}</td>
-            @else
-              <td class="danger">{{$cont->estado}}</td>
-            @endif
-            <td>{{$cont->tipo}}</td>
-            <td>{{$cont->actividad}}</td>
-            <td>{{$cont->desde}}</td>
-            <td>{{$cont->hasta}}</td>
-          @endforeach
-        </tr>
-      </table>
-      {!! $empleados->render() !!}
-    </div>
+    </tbody>
+  </table>
+{!! $empleados->render() !!}
+@endsection

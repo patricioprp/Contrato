@@ -10,7 +10,7 @@ class distributionController extends Controller
 
     public function index()
     {
-      $reparticiones = Distribution::orderBy('id','ASC')->paginate(3);
+      $reparticiones = Distribution::orderBy('id','ASC')->paginate(10);
 
       return view('admin.distribution.index')->with('reparticiones',$reparticiones);
 

@@ -4,7 +4,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="{{ asset('admin/empleado')}}">Gestionar Empleados</a></li>
+        <li class="active"><a href="{{ asset('admin/empleado')}}">Gestionar Contratista</a></li>
         <li class=""><a href="{{ asset('admin/contrato')}}">Gestionar Contratos</a></li>
         <li class=""><a href="{{ asset('admin/distribution')}}">Gestionar Reparticiones</a></li>
         <li class=""><a href="{{ asset('admin/user')}}">Gestion de Usuarios</a></li>

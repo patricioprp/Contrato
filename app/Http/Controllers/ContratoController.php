@@ -14,7 +14,9 @@ class ContratoController extends Controller
      */
     public function index()
     {
-        //
+      $contratos = Contrato::orderBy('id','ASC')->paginate(3);
+
+      return view('admin.contrato.index')->with('contratos',$contratos);
     }
 
     /**
@@ -37,7 +39,8 @@ class ContratoController extends Controller
     {
       $contrato = new Contrato($request->all());
       $contrato->save();
-      return view('admin.contrato.index');
+      //return view('admin.contrato.index');
+      return redirect(route('contrato.index'));
     }
 
     /**

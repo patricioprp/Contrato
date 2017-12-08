@@ -40,7 +40,7 @@ class EmpleadoController extends Controller
     {
       $empleado = new Empleado($request->all());
       $empleado->save();
-      dd('Empleado creado');
+      return redirect(route('empleado.index'));
     }
 
     /**
