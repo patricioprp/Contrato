@@ -40,6 +40,7 @@ class EmpleadoController extends Controller
     {
       $empleado = new Empleado($request->all());
       $empleado->save();
+      flash("Se creo el Contratista " . $empleado->nombre .",".$empleado->apellido. " correctamente!")->success();
       return redirect(route('empleado.index'));
     }
 
@@ -83,8 +84,11 @@ class EmpleadoController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empleado $empleado)
+    public function destroy($id)
     {
-        //
+      $empleado=Empleado::find($id);
+      flash("Se elimino el Empleado  " . $empleado->nombre.",".$empleado->apellido. " correctamente!")->error();
+      $empleado->delete();
+      return redirect(route('empleado.index'));
     }
 }

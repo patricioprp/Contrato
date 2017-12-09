@@ -1,6 +1,7 @@
 @extends('admin.template.main')
 @section('title','Crear Contrato')
 @section('content')
+@section('contrato','active')
 {!! Form::open(['route' => 'contrato.store','method'=>'POST']) !!}
 
 <div class="form-group">

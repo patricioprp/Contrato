@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Distribution;
 
@@ -34,6 +33,15 @@ class distributionController extends Controller
       $reparticion = new Distribution($request->all());
       $reparticion->save();
       //return view('admin.distribution.index');
+      flash("Se creo la Reparticion " . $reparticion->nombre . " correctamente!")->success();
       return redirect(route('distribution.index'));
+
+    }
+    public function destroy($id)
+    {
+        $reparticion=Distribution::find($id);
+        $reparticion->delete();
+       flash("Se elimino la reparticion  " . $reparticion->nombre . " correctamente!")->error();
+        return redirect(route('distribution.index'));
     }
 }

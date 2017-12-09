@@ -40,6 +40,7 @@ class UserController extends Controller
         $user = new User($request->all());
         $user->password = bcrypt($request->password);
         $user->save();
+      flash("Se creo el Usuario " . $user->name . " correctamente!")->success();
         return redirect(route('user.index'));
     }
 
@@ -83,8 +84,11 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $user=User::find($id);
+        $user->delete();
+       flash("Se elimino el Usuario  " . $user->name . " correctamente!")->error();
+        return redirect(route('user.index'));
     }
 }

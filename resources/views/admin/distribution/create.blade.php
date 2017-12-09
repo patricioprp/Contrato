@@ -2,7 +2,7 @@
 @extends('admin.template.main')
 @section('title','Crear Reparticiones')
 @section('content')
-
+@section('reparticion','active')
 {!! Form::open(['route' => 'distribution.store','method'=>'POST']) !!}
 
 <div class="form-group">

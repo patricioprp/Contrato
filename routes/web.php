@@ -32,20 +32,36 @@ Route::group(['prefix' => 'distributions'], function(){
 Route::group(['prefix' => 'admin'], function(){
 
 Route::resource('distribution','DistributionController');
+Route::get('distribution/{id}/destroy',[
+  'uses'=>'DistributionController@destroy',
+  'as'=>'admin.distribution.destroy'
+]);
 
 });
 Route::group(['prefix' => 'admin'], function(){
 
 Route::resource('user','UserController');
+Route::get('user/{id}/destroy',[
+  'uses' => 'UserController@destroy',
+  'as' => 'admin.user.destroy'
+]);
 
 });
 Route::group(['prefix' => 'admin'], function(){
 
 Route::resource('empleado','EmpleadoController');
+Route::get('empleado/{id}/destroy',[
+  'uses'=>'EmpleadoController@destroy',
+  'as'=>'admin.empleado.destroy'
+]);
 
 });
 Route::group(['prefix' => 'admin'], function(){
 
 Route::resource('contrato','ContratoController');
+Route::get('contrato/{id}/destroy',[
+  'uses'=>'ContratoController@destroy',
+  'as'=>'admin.contrato.destroy'
+]);
 
 });

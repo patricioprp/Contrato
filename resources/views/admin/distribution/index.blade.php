@@ -1,7 +1,8 @@
 @extends('admin.template.main')
 @section('title','Listado de Reparticiones')
 @section('content')
-<button type="button" class="btn btn-primary"><a href="{{ asset('admin/distribution/create')}}"><font color="white">Nuevo</font></a></button>
+@section('reparticion','active')
+  <a href="{{ asset('admin/distribution/create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
   <table class="table table-condensed table-bordered table-bordered table-responsive">
     <thead>
       <th>#</th>
@@ -13,7 +14,7 @@
          <tr>
            <td>{{$rep->id}}</td>
            <td>{{$rep->nombre}}</td>
-           <td><a href="" class="btn btn-danger"></a> <a href="" class="btn btn-warning"></a></td>
+           <td><a href="{{route('admin.distribution.destroy',$rep->id)}}" onclick="return confirm('Desea eliminar a {{$rep->nombre}}')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a> <a href="" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
          </tr>
       @endforeach
 

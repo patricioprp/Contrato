@@ -1,7 +1,8 @@
 @extends('admin.template.main')
 @section('title','Lista de Usuarios')
 @section('content')
-<button type="button" class="btn btn-primary"><a href="{{ asset('admin/user/create')}}"><font color="white">Nuevo</font></a></button>
+@section('usuario','active')
+<a href="{{ asset('admin/user/create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
   <table class="table table-bordered table-condensed table-striped table-responsive table-hover">
     <thead>
       <th>#</th>
@@ -22,7 +23,7 @@
            @else
              <td class="danger">{{$user->type}}</td>
            @endif
-           <td><a href="" class="btn btn-danger"></a> <a href="" class="btn btn-warning"></a></td>
+           <td><a href="{{route('admin.user.destroy',$user->id)}}" onclick="return confirm('Desea eliminar a {{$user->name}}')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a> <a href="" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
          </tr>
       @endforeach
 

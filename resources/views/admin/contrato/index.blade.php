@@ -1,7 +1,9 @@
   @extends('admin.template.main')
   @section('title','Listado de Reparticiones')
   @section('content')
-  <button type="button" class="btn btn-primary"><a href="{{ asset('admin/contrato/create')}}"><font color="white">Nuevo</font></a></button>
+  @section('contrato','active')
+  <a href="{{ asset('admin/contrato/create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+
     <table class="table table-condensed table-bordered table-bordered table-responsive">
       <thead>
         <th>#</th>
@@ -29,7 +31,9 @@
              <td>{{$contrato->actividad}}</td>
              <td>{{$contrato->desde}}</td>
              <td>{{$contrato->hasta}}</td>
-             <td><a href="" class="btn btn-danger"></a> <a href="" class="btn btn-warning"></a><a href="" class="btn btn-primary"></a></td>
+             <td><a href="" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                 <a href="" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                 <a href="" class="btn btn-success"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
            </tr>
         @endforeach
 

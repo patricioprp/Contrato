@@ -1,7 +1,8 @@
 @extends('admin.template.main')
 @section('title','Listado de Contratista')
 @section('content')
-<button type="button" class="btn btn-primary"><a href="{{ asset('admin/empleado/create')}}"><font color="white">Nuevo</font></a></button>
+@section('empleado','active')
+<a href="{{ asset('admin/empleado/create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
   <table class="table table-condensed table-bordered table-bordered table-responsive">
     <thead>
       <th>#</th>
@@ -21,7 +22,9 @@
            <td>{{$empleado->apellido}}</td>
            <td>{{$empleado->programa}}</td>
            <td>{{$empleado->distribution->nombre}}</td>
-           <td><a href="" class="btn btn-danger"></a> <a href="" class="btn btn-warning"></a> <a href="" class="btn btn-primary"></a></td>
+           <td><a href="{{route('admin.empleado.destroy',$empleado->id)}}" onclick="return confirm('Desea eliminar a {{$empleado->nombre}} {{$empleado->apellido}}?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+               <a href="" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+               <a href="" class="btn btn-success"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
          </tr>
       @endforeach
 
