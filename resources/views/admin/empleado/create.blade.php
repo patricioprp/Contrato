@@ -12,8 +12,8 @@
   {!! Form::text('nombre',null,['class' => 'form-control', 'placeholder'=>'Nombre','required']) !!}
   {!! Form::label('apellido','APELLIDO') !!}
   {!! Form::text('apellido',null,['class' => 'form-control', 'placeholder'=>'APELLIDO','required']) !!}
-  {!! Form::label('type','TIPO') !!}
-  {!! Form::select('type',['' => 'Seleccione un Programa', 'MDP'=>'MDP','UEDP'=>'UEDP','PRODERI'=>'PRODERI','PROICSA'=>'PROICSA'],null,['class'=>'form-control']) !!}
+  {!! Form::label('programa','Programa') !!}
+  {!! Form::select('programa',['' => 'Seleccione un Programa', 'MDP'=>'MDP','UEDP'=>'UEDP','PRODERI'=>'PRODERI','PROICSA'=>'PROICSA'],null,['class'=>'form-control']) !!}
   {!! Form::label('distribution_id','Reparticion') !!}
   {!! Form::select('distribution_id',$reparticiones,null,['class' => 'form-control','required']) !!}
 <br>

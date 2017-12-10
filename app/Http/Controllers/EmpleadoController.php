@@ -77,10 +77,8 @@ class EmpleadoController extends Controller
     public function update(Request $request, $id)
     {
       $empleado=Empleado::find($id);
-      $empleado->dni=$request->dni;
-      $empleado->nombre=$request->nombre;
-      $empleado->apellido=$request->apellido;
-      $empleado->distribution_id=$request->distribution_id;
+      $empleado->fill($request->all());
+
       $empleado->save();
       flash("Se actualizo el Empleado  " . $empleado->nombre. ",".$empleado->apellido." correctamente!")->warning();
        return redirect(route('empleado.index'));

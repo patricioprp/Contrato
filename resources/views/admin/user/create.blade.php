@@ -2,6 +2,8 @@
 @section('title','Crear Usuario')
 @section('content')
 @section('usuario','active')
+
+
 {!! Form::open(['route' => 'user.store','method'=>'POST']) !!}
 
 <div class="form-group">
