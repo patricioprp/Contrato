@@ -61,9 +61,10 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $user=User::find($id);
+        return view('admin.user.edit')->with('user',$user);
     }
 
     /**
@@ -73,9 +74,17 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $user=User::find($id);
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=$request->password;
+        $user->type=$request->type;
+        $user->save();
+        flash("Se actualizo el Usuario  " . $user->name . " correctamente!")->warning();
+         return redirect(route('user.index'));
+
     }
 
     /**

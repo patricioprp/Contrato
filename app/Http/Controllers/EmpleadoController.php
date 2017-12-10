@@ -61,9 +61,10 @@ class EmpleadoController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empleado $empleado)
-    {
-        //
+    public function edit($id)
+    {   $reparticiones = Distribution::pluck('nombre','id');
+        $empleado=Empleado::find($id);
+        return view('admin.empleado.edit')->with('empleado',$empleado)->with('reparticiones',$reparticiones);
     }
 
     /**
@@ -73,9 +74,16 @@ class EmpleadoController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empleado $empleado)
+    public function update(Request $request, $id)
     {
-        //
+      $empleado=Empleado::find($id);
+      $empleado->dni=$request->dni;
+      $empleado->nombre=$request->nombre;
+      $empleado->apellido=$request->apellido;
+      $empleado->distribution_id=$request->distribution_id;
+      $empleado->save();
+      flash("Se actualizo el Empleado  " . $empleado->nombre. ",".$empleado->apellido." correctamente!")->warning();
+       return redirect(route('empleado.index'));
     }
 
     /**

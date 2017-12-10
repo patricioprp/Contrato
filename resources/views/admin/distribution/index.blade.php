@@ -14,7 +14,8 @@
          <tr>
            <td>{{$rep->id}}</td>
            <td>{{$rep->nombre}}</td>
-           <td><a href="{{route('admin.distribution.destroy',$rep->id)}}" onclick="return confirm('Desea eliminar a {{$rep->nombre}}')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a> <a href="" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+           <td><a href="{{route('admin.distribution.destroy',$rep->id)}}" onclick="return confirm('Desea eliminar a {{$rep->nombre}}')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+              <a href="{{route('distribution.edit',$rep->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
          </tr>
       @endforeach
 

@@ -44,4 +44,20 @@ class distributionController extends Controller
        flash("Se elimino la reparticion  " . $reparticion->nombre . " correctamente!")->error();
         return redirect(route('distribution.index'));
     }
+
+    public function edit($id)
+    {
+        $reparticion=Distribution::find($id);
+        return view('admin.distribution.edit')->with('reparticion',$reparticion);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $reparticion=Distribution::find($id);
+        $reparticion->nombre=$request->nombre;
+        $reparticion->save();
+        flash("Se actualizo la Reparticion  " . $reparticion->nombre . " correctamente!")->warning();
+         return redirect(route('distribution.index'));
+
+    }
 }

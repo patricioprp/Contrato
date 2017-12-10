@@ -23,7 +23,8 @@
            @else
              <td class="danger">{{$user->type}}</td>
            @endif
-           <td><a href="{{route('admin.user.destroy',$user->id)}}" onclick="return confirm('Desea eliminar a {{$user->name}}')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a> <a href="" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+           <td><a href="{{route('admin.user.destroy',$user->id)}}" onclick="return confirm('Desea eliminar a {{$user->name}}')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+               <a href="{{route('user.edit',$user->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
          </tr>
       @endforeach
 
