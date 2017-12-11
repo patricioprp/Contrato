@@ -78,7 +78,6 @@ class EmpleadoController extends Controller
     {
       $empleado=Empleado::find($id);
       $empleado->fill($request->all());
-
       $empleado->save();
       flash("Se actualizo el Empleado  " . $empleado->nombre. ",".$empleado->apellido." correctamente!")->warning();
        return redirect(route('empleado.index'));
