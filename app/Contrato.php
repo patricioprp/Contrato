@@ -11,7 +11,7 @@ class Contrato extends Model
 
 
     public function empleado(){
-      /*return $this->belongsTo('\App\Empleado');*/
-      return $this->belongsToMany('\App\Empleado');
+      return $this->belongsTo('\App\Empleado');
+    /*  return $this->belongsToMany('\App\Empleado');*/
     }
 }

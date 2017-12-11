@@ -41,7 +41,8 @@ class ContratoController extends Controller
     {
       $contrato = new Contrato($request->all());
       $contrato->save();
-      $contrato->empleado()->sync($request->empleados);
+    /*  $contrato->empleado()->sync($request->empleados);*/
+    $contrato->empleado()->associate($request->empleados);
       flash("Se creo el Contrato # " . $contrato->id . " correctamente!")->success();
       //return view('admin.contrato.index');
       return redirect(route('contrato.index'));
