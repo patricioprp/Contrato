@@ -2,6 +2,7 @@
 @section('title','Lista de Usuarios')
 @section('content')
 @section('usuario','active')
+<h3><b>Modulo de Gestion de Usuario</b></h3>
 <a href="{{ asset('admin/user/create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
   <table class="table table-bordered table-condensed table-striped table-responsive table-hover">
     <thead>

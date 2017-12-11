@@ -2,6 +2,7 @@
 @section('title','Listado de Reparticiones')
 @section('content')
 @section('reparticion','active')
+<h3><b>Modulo de Gestion de Reparticion</b></h3>
   <a href="{{ asset('admin/distribution/create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
   <table class="table table-condensed table-bordered table-bordered table-responsive">
     <thead>

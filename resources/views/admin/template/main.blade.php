@@ -11,7 +11,7 @@
 
 <section>
 @include('flash::message')<!--para que se muestren los mensajes con el paquete flash -->
-@include('admin.template.partials.errors');
+@include('admin.template.partials.errors')
   @yield('content')
 </section>
 
