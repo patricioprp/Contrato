@@ -2,7 +2,7 @@
 @section('title','Listado de Contratista')
 @section('content')
 @section('empleado','active')
-<h3><b>Modulo de Gestion de Contratista</b></h3>
+<h3><b>Modulo de Gestion de Consultor</b></h3>
 <a href="{{ asset('admin/empleado/create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
   <table class="table table-condensed table-bordered table-bordered table-responsive">
     <thead>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contrato;
 use Illuminate\Http\Request;
 use App\Empleado;
+use App\Http\Requests\ContratoRequest;
 class ContratoController extends Controller
 {
     /**
@@ -37,7 +38,7 @@ class ContratoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContratoRequest $request)
     {
       $contrato = new Contrato($request->all());
       $contrato->save();
@@ -78,7 +79,7 @@ class ContratoController extends Controller
      * @param  \App\Contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contrato $contrato)
+    public function update(ContratoRequest $request, Contrato $contrato)
     {
         //
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Empleado;
 use App\Distribution;
 use Illuminate\Http\Request;
+use App\Http\Requests\EmpleadoRequest;
 
 class EmpleadoController extends Controller
 {
@@ -36,11 +37,11 @@ class EmpleadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmpleadoRequest $request)
     {
       $empleado = new Empleado($request->all());
       $empleado->save();
-      flash("Se creo el Contratista " . $empleado->nombre .",".$empleado->apellido. " correctamente!")->success();
+      flash("Se creo el Consultor " . $empleado->nombre .",".$empleado->apellido. " correctamente!")->success();
       return redirect(route('empleado.index'));
     }
 
@@ -74,12 +75,12 @@ class EmpleadoController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EmpleadoRequest $request, $id)
     {
       $empleado=Empleado::find($id);
       $empleado->fill($request->all());
       $empleado->save();
-      flash("Se actualizo el Empleado  " . $empleado->nombre. ",".$empleado->apellido." correctamente!")->warning();
+      flash("Se actualizo el Consultor  " . $empleado->nombre. ",".$empleado->apellido." correctamente!")->warning();
        return redirect(route('empleado.index'));
     }
 
