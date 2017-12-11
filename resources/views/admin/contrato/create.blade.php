@@ -5,6 +5,8 @@
 {!! Form::open(['route' => 'contrato.store','method'=>'POST']) !!}
 
 <div class="form-group">
+  {!! Form::label('empleado','Empleado') !!}
+  {!! Form::select('empleado',$empleados,null,['class' => 'form-control','required']) !!}
 
   {!! Form::label('fondos_origen','Fondos de Origen') !!}
   {!! Form::text('fondos_origen',null,['class' => 'form-control', 'placeholder'=>'Fondos de Origen','required']) !!}

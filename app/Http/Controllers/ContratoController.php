@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contrato;
 use Illuminate\Http\Request;
-
+use App\Empleado;
 class ContratoController extends Controller
 {
     /**
@@ -26,7 +26,9 @@ class ContratoController extends Controller
      */
     public function create()
     {
-        return view('admin.contrato.create');
+      $empleados = Empleado::pluck('dni','id');
+
+        return view('admin.contrato.create')->with('empleados',$empleados);
     }
 
     /**
@@ -39,6 +41,7 @@ class ContratoController extends Controller
     {
       $contrato = new Contrato($request->all());
       $contrato->save();
+      $contrato->empleado()->sync($request->empleados);
       flash("Se creo el Contrato # " . $contrato->id . " correctamente!")->success();
       //return view('admin.contrato.index');
       return redirect(route('contrato.index'));
