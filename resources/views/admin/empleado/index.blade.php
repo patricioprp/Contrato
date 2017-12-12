@@ -3,6 +3,15 @@
 @section('content')
 @section('empleado','active')
 <h3><b>Modulo de Gestion de Consultor</b></h3>
+<!--BUSCADOR DE CONSULTOR -->
+{!! Form::open(['route'=>'empleado.index','metod'=>'GET', 'class'=> 'navbar-form pull-right']) !!}
+<div class="input-group">
+    {!! Form::text('nombre',null,['class' => 'form-control', 'placeholder'=>'Buscar Consultor',
+      'aria-describedby'=>'search']) !!}
+      <span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+</div>
+{!! Form::close() !!}
+<!-- FIN DEL BUSCADOR-->
 <a href="{{ asset('admin/empleado/create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
   <table class="table table-condensed table-bordered table-bordered table-responsive">
     <thead>

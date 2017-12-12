@@ -25,9 +25,9 @@
           <td>Desde</td>
           <td>Hasta</td>
         </tr>
-        <tr>
+
           @foreach ($empleado->contratos as $cont)
-            <td>{{$cont->id}}</td>
+          <tr>  <td>{{$cont->id}}</td>
             <td>{{$cont->fondos_origen}}</td>
             <td>{{$cont->indicador}}</td>
             <td>{{$cont->monto}}</td>
@@ -42,8 +42,8 @@
             <td>{{$cont->tipo}}</td>
             <td>{{$cont->actividad}}</td>
             <td>{{$cont->desde}}</td>
-            <td>{{$cont->hasta}}</td>
+            <td>{{$cont->hasta}}</td> </tr>
           @endforeach
-        </tr>
+
       </table>
     </div>

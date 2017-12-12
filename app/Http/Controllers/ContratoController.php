@@ -27,7 +27,8 @@ class ContratoController extends Controller
      */
     public function create()
     {
-      $empleados = Empleado::pluck('dni','id');
+      $empleados = Empleado::all()->pluck('full','id');
+      //dd($empleados[0]->full);
 
         return view('admin.contrato.create')->with('empleados',$empleados);
     }
@@ -41,9 +42,11 @@ class ContratoController extends Controller
     public function store(ContratoRequest $request)
     {
       $contrato = new Contrato($request->all());
-      $contrato->save();
+      $empleado = Empleado::find($request->empleado);
+      $empleado->contratos()->save($contrato);
+      //$contrato->save();
     /*  $contrato->empleado()->sync($request->empleados);*/
-    $contrato->empleado()->associate($request->empleados);
+    //$contrato->empleado()->associate($request->empleados);
 
       flash("Se creo el Contrato # " . $contrato->id . " correctamente!")->success();
       //return view('admin.contrato.index');
