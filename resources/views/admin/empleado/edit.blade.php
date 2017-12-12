@@ -13,8 +13,8 @@
   {!! Form::text('nombre',$empleado->nombre,['class' => 'form-control', 'placeholder'=>'Nombre','required']) !!}
   {!! Form::label('apellido','APELLIDO') !!}
   {!! Form::text('apellido',$empleado->apellido,['class' => 'form-control', 'placeholder'=>'APELLIDO','required']) !!}
-  {!! Form::label('programa','Programa') !!}
-  {!! Form::select('programa',['' => 'Seleccione un Programa', 'MDP'=>'MDP','UEDP'=>'UEDP','PRODERI'=>'PRODERI','PROICSA'=>'PROICSA'],$empleado->programa,['class'=>'form-control']) !!}
+  {!! Form::label('programa_id','Programa') !!}
+  {!! Form::select('programa_id',$programas,null,['class' => 'form-control','required']) !!}
   {!! Form::label('distribution_id','Reparticion') !!}
   {!! Form::select('distribution_id',$reparticiones,null,['class' => 'form-control','required']) !!}
 <br>

@@ -26,9 +26,9 @@
 </div>
 </div>
       <div class="form-group col-lg-6">
-  {!! Form::label('programa','Programa',['class'=>'col-lg-3 control-label']) !!}
+  {!! Form::label('programa_id','Programa',['class'=>'col-lg-3 control-label']) !!}
       <div class="col-lg-9">
-  {!! Form::select('programa',['' => 'Seleccione un Programa', 'MDP'=>'MDP','UEDP'=>'UEDP','PRODERI'=>'PRODERI','PROICSA'=>'PROICSA'],null,['class'=>'form-control']) !!}
+  {!! Form::select('programa_id',$programas,null,['class' => 'form-control','required']) !!}
 </div>
 </div>
       <div class="form-group col-lg-6">

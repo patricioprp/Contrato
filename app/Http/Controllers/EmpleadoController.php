@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Empleado;
 use App\Distribution;
+use App\Programa;
 use Illuminate\Http\Request;
 use App\Http\Requests\EmpleadoRequest;
 
@@ -29,7 +30,8 @@ class EmpleadoController extends Controller
     public function create()
     {
       $reparticiones = Distribution::pluck('nombre','id');
-        return view('admin.empleado.create')->with('reparticiones',$reparticiones);
+      $programas=Programa::pluck('nombre','id');
+        return view('admin.empleado.create')->with('reparticiones',$reparticiones)->with('programas',$programas);
     }
 
     /**
@@ -41,7 +43,8 @@ class EmpleadoController extends Controller
     public function store(EmpleadoRequest $request)
     {
       $empleado = new Empleado($request->all());
-      $empleado->save();
+
+     $empleado->save();
       flash("Se creo el Consultor " . $empleado->nombre .",".$empleado->apellido. " correctamente!")->success();
       return redirect(route('empleado.index'));
     }
@@ -65,8 +68,9 @@ class EmpleadoController extends Controller
      */
     public function edit($id)
     {   $reparticiones = Distribution::pluck('nombre','id');
+        $programas = Programa::pluck('nombre','id');
         $empleado=Empleado::find($id);
-        return view('admin.empleado.edit')->with('empleado',$empleado)->with('reparticiones',$reparticiones);
+        return view('admin.empleado.edit')->with('empleado',$empleado)->with('reparticiones',$reparticiones)->with('programas',$programas);
     }
 
     /**

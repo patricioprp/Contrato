@@ -5,9 +5,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="@yield('empleado')"><a href="{{ asset('admin/empleado')}}">Gestionar Consultor</a></li>
-        <li class="@yield('contrato')"><a href="{{ asset('admin/contrato')}}">Gestionar Contratos</a></li>
-        <li class="@yield('reparticion')"><a href="{{ asset('admin/distribution')}}">Gestionar Reparticiones</a></li>
-        <li class="@yield('usuario')"><a href="{{ asset('admin/user')}}">Gestion de Usuarios</a></li>
+        <li class="@yield('contrato')"><a href="{{ asset('admin/contrato')}}">Gestionar Contrato</a></li>
+        <li class="@yield('reparticion')"><a href="{{ asset('admin/distribution')}}">Gestionar Reparticion</a></li>
+        <li class="@yield('programa')"><a href="{{ asset('admin/programa')}}">Gestionar Programa</a></li>
+        <li class="@yield('usuario')"><a href="{{ asset('admin/user')}}">Gestion de Usuario</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filtrar por... <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -18,12 +19,7 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Buscar</button>
-      </form>
+
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{asset('/')}}">Pagina de Inicio</a></li>
         <li class="dropdown">
