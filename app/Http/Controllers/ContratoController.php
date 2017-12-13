@@ -70,9 +70,11 @@ class ContratoController extends Controller
      * @param  \App\Contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contrato $contrato)
+    public function edit($id)
     {
-        //
+        $empleado=Empleado::all()->pluck('full','id');
+        $contrato=Contrato::find($id);
+        return view('admin.contrato.edit')->with('contrato',$contrato)->with('empleado',$empleado);
     }
 
     /**
@@ -82,9 +84,13 @@ class ContratoController extends Controller
      * @param  \App\Contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function update(ContratoRequest $request, Contrato $contrato)
+    public function update(ContratoRequest $request, $id)
     {
-        //
+      $contrato=Contrato::find($id);
+      $contrato->fill($request->all());
+      $contrato->save();
+      flash("Se actualizo el Contrato  " . $contrato->id. ",".$contrato->tipo." correctamente!")->warning();
+       return redirect(route('contrato.index'));
     }
 
     /**

@@ -1,5 +1,5 @@
   @extends('admin.template.main')
-  @section('title','Listado de Reparticiones')
+  @section('title','Listado de Contratos')
   @section('content')
   @section('contrato','active')
   <h3><b>Modulo de Gestion de Contrato</b></h3>
@@ -9,11 +9,11 @@
       <thead>
         <th>#</th>
         <th>FONDOS DE ORIGEN</th>
-        <th>INDICADOR</th>
-        <th>MONTO</th>
+        <th>INDICADOR(Dias Restantes)</th>
+        <th>MONTO($)</th>
         <th>DURACION</th>
         <th>ESTADO</th>
-        <th>TIPO</th>
+        <th>TIPO(obra,servicio, etc.)</th>
         <th>ACTIVIDAD</th>
         <th>DESDE</th>
         <th>HASTA</th>
@@ -33,7 +33,7 @@
              <td>{{$contrato->desde}}</td>
              <td>{{$contrato->hasta}}</td>
              <td><a href="" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                 <a href="" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                 <a href="{{route('contrato.edit',$contrato->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                  <a href="" class="btn btn-success"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
            </tr>
         @endforeach
