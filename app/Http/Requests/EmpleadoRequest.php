@@ -24,7 +24,7 @@ class EmpleadoRequest extends FormRequest
     public function rules()
     {
         return [
-          'dni'=>'min:7|max:8|required|unique:empleados',
+          'dni'=>'min:7|max:8|required',
           'nombre'=>'min:4|max:90|required',
           'apellido'=>'min:4|max:90|required'
         ];

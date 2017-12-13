@@ -17,6 +17,7 @@ class AddEmpleadosTable extends Migration
 
             $table->increments('id');
             $table->bigInteger('dni')->unique();
+            $table->bigInteger('cuit')->unique();
             $table->string('nombre');
             $table->string('apellido');
             $table->integer('programa_id')->unsigned();

@@ -17,6 +17,7 @@
     <thead>
       <th>#</th>
       <th>DNI</th>
+      <th>CUIT</th>
       <th>NOMBRE</th>
       <th>APELLIDO</th>
       <th>PROGRAMA</th>
@@ -28,6 +29,7 @@
          <tr>
            <td>{{$empleado->id}}</td>
            <td>{{$empleado->dni}}</td>
+           <td>{{$empleado->cuit}}</td>
            <td>{{$empleado->nombre}}</td>
            <td>{{$empleado->apellido}}</td>
            <td>{{$empleado->programa->nombre}}</td>

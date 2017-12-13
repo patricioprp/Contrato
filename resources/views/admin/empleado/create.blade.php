@@ -13,6 +13,12 @@
   {!! Form::text('dni',null,['class' => 'form-control', 'placeholder'=>'DNI','required']) !!}
 </div>
 </div>
+  <div class="form-group col-lg-6">
+{!! Form::label('cuit','CUIT',['class'=>'col-lg-1 control-label']) !!}
+  <div class="col-lg-11">
+{!! Form::text('cuit',null,['class' => 'form-control', 'placeholder'=>'CUIT(Sin Guiones)','required']) !!}
+</div>
+</div>
      <div class="form-group col-lg-6">
   {!! Form::label('nombre','NOMBRE',['class'=>'col-lg-2 control-label']) !!}
      <div class="col-lg-10">
