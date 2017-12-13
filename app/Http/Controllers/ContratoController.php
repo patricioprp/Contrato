@@ -99,8 +99,11 @@ class ContratoController extends Controller
      * @param  \App\Contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contrato $contrato)
+    public function destroy($id)
     {
-        //
+      $contrato=Contrato::find($id);
+      flash("Se elimino el Contrato  " . $contrato->id.",".$contrato->tipo. " correctamente!")->error();
+      $contrato->delete();
+      return redirect(route('contrato.index'));
     }
 }
