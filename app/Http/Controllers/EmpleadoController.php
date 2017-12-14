@@ -55,9 +55,12 @@ class EmpleadoController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function show(Empleado $empleado)
+    public function show($id)
     {
-        //
+      $empleado = Empleado::find($id);
+
+
+      return view('admin.empleado.show')->with('empleado',$empleado);
     }
 
     /**

@@ -51,6 +51,10 @@ Route::get('empleado/{id}/destroy',[
   'uses'=>'EmpleadoController@destroy',
   'as'=>'admin.empleado.destroy'
 ]);
+Route::get('empleado/show/{id}', [
+  'uses' => 'EmpleadoController@show',
+  'as' => 'admin.empleado.show'
+]);
 });
 Route::group(['prefix' => 'admin'], function(){
 Route::resource('contrato','ContratoController');
