@@ -26,6 +26,8 @@ class AddContratosTable extends Migration
             $table->string('actividad');
             $table->date('desde');
             $table->date('hasta');
+            $table->integer('empleado_id')->unsigned();
+            $table->foreign('empleado_id')->references('id')->on('empleados');
 
             $table->timestamps();
 

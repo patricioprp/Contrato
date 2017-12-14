@@ -17,7 +17,7 @@ class Empleado extends Model
       return $this->belongsTo('\App\Programa');
     }
     public function contratos(){
-        return $this->belongsToMany('\App\Contrato');
+        return $this->hasMany('\App\Contrato');
     }
 public function getFullAttribute(){
   return $this->dni.'-'.$this->nombre.'-'.$this->apellido;

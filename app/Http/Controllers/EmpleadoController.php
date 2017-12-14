@@ -99,7 +99,8 @@ class EmpleadoController extends Controller
     {
       $empleado=Empleado::find($id);
       flash("Se elimino el Empleado  " . $empleado->nombre.",".$empleado->apellido. " correctamente!")->error();
-      $empleado->delete();
+      $empleado->contratos()->forceDelete();
+      $empleado->forceDelete();
       return redirect(route('empleado.index'));
     }
 }

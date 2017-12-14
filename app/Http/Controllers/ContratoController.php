@@ -103,7 +103,7 @@ class ContratoController extends Controller
     {
       $contrato=Contrato::find($id);
       flash("Se elimino el Contrato  " . $contrato->id.",".$contrato->tipo. " correctamente!")->error();
-      $contrato->delete();
+      $contrato->forceDelete();
       return redirect(route('contrato.index'));
     }
 }

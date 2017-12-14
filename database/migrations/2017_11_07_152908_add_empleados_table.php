@@ -30,16 +30,6 @@ class AddEmpleadosTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('contrato_empleado', function (Blueprint $table){
-           $table->increments('id');
-           $table->integer('empleado_id')->unsigned();
-           $table->integer('contrato_id')->unsigned();
-
-           $table->foreign('empleado_id')->references('id')->on('empleados');
-           $table->foreign('contrato_id')->references('id')->on('contratos');
-
-           $table->timestamps();
-});
 
 
     }

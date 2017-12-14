@@ -5,29 +5,45 @@
 {!! Form::open(['route' => 'contrato.store','method'=>'POST']) !!}
 
 <div class="form-group">
-  {!! Form::label('empleado','Empleado') !!}
+       <div class="form-group col-lg-8">
+  {!! Form::label('empleado','Empleado',['class'=>'col-lg-1 control-label']) !!}
+       <div class="col-lg-8">
   {!! Form::select('empleado',$empleados,null,['class' => 'form-control','required']) !!}
-
-  {!! Form::label('fondos_origen','Fondos de Origen') !!}
+</div></div>
+       <div class="form-group col-lg-6">
+  {!! Form::label('fondos_origen','Fondos de Origen',['class'=>'col-lg-1 control-label']) !!}
+     <div class="col-lg-8">
   {!! Form::text('fondos_origen',null,['class' => 'form-control', 'placeholder'=>'Fondos de Origen','required']) !!}
-  {!! Form::label('indicador','Indicador') !!}
+</div></div>
+       <div class="form-group col-lg-6">
+  {!! Form::label('indicador','Indicador',['class'=>'col-lg-1 control-label']) !!}
+       <div class="col-lg-8">
   {!! Form::text('indicador',null,['class' => 'form-control', 'placeholder'=>'Indicador','required']) !!}
-  {!! Form::label('monto','Monto') !!}
+</div></div>
+       <div class="form-group col-lg-6">
+  {!! Form::label('monto','Monto',['class'=>'col-lg-1 control-label']) !!}
+         <div class="col-lg-8">
   {!! Form::text('monto',null,['class' => 'form-control', 'placeholder'=>'Monto','required']) !!}
-  {!! Form::label('duracion','Duracion') !!}
+</div></div>
+       <div class="form-group col-lg-6">
+  {!! Form::label('duracion','Duracion',['class'=>'col-lg-1 control-label']) !!}
+           <div class="col-lg-8">
   {!! Form::text('duracion',null,['class' => 'form-control', 'placeholder'=>'Duracion','required']) !!}
-
-  {!! Form::label('estado','Estado') !!}
+</div></div>
+       <div class="form-group col-lg-6">
+  {!! Form::label('estado','Estado',['class'=>'col-lg-1 control-label']) !!}
+             <div class="col-lg-8">
   {!! Form::select('estado',['' => 'Seleccione un Estado', 'activo'=>'activo','proximo'=>'proximo','finalizado'=>'finalizado'],null,['class'=>'form-control']) !!}
-  {!! Form::label('tipo','Tipo') !!}
+</div></div>
+  {!! Form::label('tipo','Tipo',['class'=>'col-lg-1 control-label']) !!}
   {!! Form::text('tipo',null,['class' => 'form-control', 'placeholder'=>'tipo','required']) !!}
-  {!! Form::label('actividad','Actividad') !!}
+  {!! Form::label('actividad','Actividad',['class'=>'col-lg-1 control-label']) !!}
   {!! Form::text('actividad',null,['class' => 'form-control', 'placeholder'=>'actividad','required']) !!}
 
 
-  {!! Form::label('desde','desde') !!}
+  {!! Form::label('desde','desde',['class'=>'col-lg-1 control-label']) !!}
   {!! Form::text('desde',null,['class' => 'form-control', 'placeholder'=>'aaaa-dd-aa','required']) !!}
-  {!! Form::label('hasta','hasta') !!}
+  {!! Form::label('hasta','hasta',['class'=>'col-lg-1 control-label']) !!}
   {!! Form::text('hasta',null,['class' => 'form-control', 'placeholder'=>'aaaa-dd-aa','required']) !!}
 <br>
   {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}

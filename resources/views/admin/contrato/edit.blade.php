@@ -4,7 +4,7 @@
 @section('contrato','active')
 
 {!! Form::open(['route' => ['contrato.update',$contrato],'method'=>'PUT']) !!}
-<h2>Editando Consultor: {!!$empleado!!}</h2>
+<h2>Editando Consultor: </h2>
 <div class="form-group">
   {!! Form::label('empleado','Empleado') !!}
   {!! Form::select('empleado',$empleado,null,['class' => 'form-control','required']) !!}
