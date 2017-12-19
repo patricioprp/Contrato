@@ -78,6 +78,7 @@ class UserController extends Controller
     {
         $user=User::find($id);
         $user->fill($request->all());
+        $user->password = bcrypt($request->password);
         $user->save();
         flash("Se actualizo el Usuario  " . $user->name . " correctamente!")->warning();
          return redirect(route('user.index'));

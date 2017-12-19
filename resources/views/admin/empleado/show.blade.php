@@ -1,8 +1,7 @@
 @include('admin.template.main')
-<title>@yield('title','Listar Empleados')</title>
+@section('title','Listar Consultor')
 
-
-
+@section('empleado','active')
   <body>
     <div class="panel panel-default">
       <!-- Default panel contents -->

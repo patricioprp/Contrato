@@ -33,14 +33,20 @@
              <td>{{$contrato->indicador}}</td>
              <td>{{$contrato->monto}}</td>
              <td>{{$contrato->duracion}}</td>
-             <td>{{$contrato->estado}}</td>
+             @if ($contrato->estado == "activo")
+                <td class="success">{{$contrato->estado}}</td>
+             @elseif ($contrato->estado == "proximo")
+                <td class="warning">{{$contrato->estado}}</td>
+             @else
+               <td class="danger">{{$contrato->estado}}</td>
+             @endif
              <td>{{$contrato->tipo}}</td>
              <td>{{$contrato->actividad}}</td>
              <td>{{$contrato->desde}}</td>
              <td>{{$contrato->hasta}}</td>
              <td><a href="{{route('admin.contrato.destroy',$contrato->id)}}"onclick="return confirm('Desea eliminar a {{$contrato->id}} {{$contrato->tipo}}?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                  <a href="{{route('contrato.edit',$contrato->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                 
+
            </tr>
         @endforeach
 
