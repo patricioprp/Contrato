@@ -39,10 +39,18 @@ class distributionController extends Controller
     }
     public function destroy($id)
     {
-        $reparticion=Distribution::find($id);
-        $reparticion->delete();
-       flash("Se elimino la reparticion  " . $reparticion->nombre . " correctamente!")->error();
-        return redirect(route('distribution.index'));
+
+        try {
+
+          $reparticion=Distribution::find($id);
+          $reparticion->delete();
+          flash("Se elimino la reparticion  " . $reparticion->nombre . " correctamente!")->error();
+           return redirect(route('distribution.index'));
+}catch (\Illuminate\Database\QueryException $e){
+flash("ATENCION!!! No es posible eliminar la reparticion  " . $reparticion->nombre . " porque esta asociado a uno o mas Consultores")->error();
+return redirect(route('distribution.index'));
+}
+
     }
 
     public function edit($id)

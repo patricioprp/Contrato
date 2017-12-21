@@ -90,11 +90,20 @@ class ProgramaController extends Controller
      */
     public function destroy($id)
     {
-      $programa=Distribution::find($id);
-      $programa->delete();
-     flash("Se elimino el Programa  " . $programa->nombre . " correctamente!")->error();
-      return redirect(route('programa.index'));
+
+try {
+
+  $programa=Programa::find($id);
+  $programa->delete();
+ flash("Se elimino el Programa  " . $programa->nombre . " correctamente!")->error();
+  return redirect(route('programa.index'));
+
+}catch (\Illuminate\Database\QueryException $e){
+  flash("ATENCION!!! No es posible eliminar el Programa  " . $programa->nombre . " porque esta asociado a uno o mas Consultores")->error();
+   return redirect(route('programa.index'));
+}
     }
+
     public function view($id)
     {
       $programa=Programa::find($id);

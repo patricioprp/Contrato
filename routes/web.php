@@ -9,9 +9,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
 Route::group(['prefix' => 'empleados'], function(){
 Route::get('view/{id}', [
   'uses' => 'TestController@view',
@@ -63,5 +65,9 @@ Route::get('contrato/{id}/destroy',[
   'as'=>'admin.contrato.destroy'
 ]);
 });
+Route::get('profile', ['middleware' => 'auth', function()
+{
+    Route::resource('contrato','ContratoController');
+}]);
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
