@@ -52,5 +52,9 @@
 
       </tbody>
     </table>
+    <p>
+     <a href="{{ route('Listado.excel') }}" class="btn btn-sm btn-primary">
+         Descargar en archivo Excel
+ </p>
   {!! $contratos->render() !!}
   @endsection
