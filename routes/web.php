@@ -71,3 +71,6 @@ Route::get('profile', ['middleware' => 'auth', function()
 }]);
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/', 'ProductController@index')->name('products');
+Route::get('descargar-productos', 'ContratoController@excel')->name('Listado.excel');

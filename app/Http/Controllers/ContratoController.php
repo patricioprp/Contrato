@@ -6,6 +6,8 @@ use App\Contrato;
 use Illuminate\Http\Request;
 use App\Empleado;
 use App\Http\Requests\ContratoRequest;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\DB;
 class ContratoController extends Controller
 {
     /**
@@ -15,7 +17,7 @@ class ContratoController extends Controller
      */
     public function index()
     {
-      $contratos = Contrato::orderBy('id','ASC')->paginate(3);
+      $contratos = Contrato::orderBy('id','ASC')->paginate(10);
 
       return view('admin.contrato.index')->with('contratos',$contratos);
     }
@@ -105,5 +107,57 @@ class ContratoController extends Controller
       flash("Se elimino el Contrato  " . $contrato->id.",".$contrato->tipo. " correctamente!")->error();
       $contrato->forceDelete();
       return redirect(route('contrato.index'));
+    }
+    public function excel()
+    {
+        /**
+         * toma en cuenta que para ver los mismos
+         * datos debemos hacer la misma consulta
+        **/
+        Excel::create('Contratos Excel', function($excel) {
+            $excel->sheet('Contratos sheet', function($sheet) {
+                //otra opción -> $products = Product::select('nombre')->get();
+              //  $contrato = Contrato::all();
+            /*  $repeaters = DB::table('Repeater')
+                ->join('volcanos', 'Repeater.volcan_id', '=', 'volcan.id')
+                ->join('observatories', 'volcanos.observatorio_id', '=', 'observatories.id')
+                ->get();*/
+               /*$contratos = DB::table('empleados')
+                ->join('programas','empleados.programa_id', '=', 'programas.id')
+                ->join('contratos', 'contratos.empleado_id', '=', 'empleados.id')
+                ->select(
+                'contratos.id',
+                \DB::raw("concat(empleados.nombre, ' ', empleados.apellido) as `Nombre`"),
+                'empleados.dni',
+                'programas.nombre',
+                'contratos.fondos_origen',
+                'contratos.indicador',
+                'contratos.monto',
+                'contratos.duracion',
+                'contratos.estado',
+                'contratos.tipo',
+                'contratos.actividad',
+                'contratos.desde',
+                'contratos.hasta')
+                ->get();*/
+              $contratos = Contrato::join('empleados', 'empleados.id', '=', 'contratos.id')
+              ->select(
+              'contratos.id',
+              \DB::raw("concat(empleados.nombre, ' ', empleados.apellido) as `Nombre`"),
+              'empleados.dni',
+              'contratos.fondos_origen',
+              'contratos.indicador',
+              'contratos.monto',
+              'contratos.duracion',
+              'contratos.estado',
+              'contratos.tipo',
+              'contratos.actividad',
+              'contratos.desde',
+              'contratos.hasta')
+              ->get();
+                $sheet->fromArray($contratos);
+                $sheet->setOrientation('landscape');
+            });
+        })->export('xls');
     }
 }

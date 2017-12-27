@@ -24,7 +24,7 @@ class ContratoRequest extends FormRequest
     public function rules()
     {
         return [
-          'fondos_origen'=>'min:4|max:50|required',
+          'fondos_origen'=>'min:3|max:50|required',
           'indicador'=>'min:0|max:3|required',
           'monto'=>'min:5|max:6|required'
         ];
