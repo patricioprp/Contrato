@@ -6,7 +6,7 @@
 
 <div class="form-group">
        <div class="form-group col-lg-8">
-  {!! Form::label('empleado','Empleado',['class'=>'col-lg-1 control-label']) !!}
+  {!! Form::label('empleado','Consultor',['class'=>'col-lg-1 control-label']) !!}
        <div class="col-lg-8">
   {!! Form::select('empleado',$empleados,null,['class' => 'form-control','required']) !!}
 </div></div>
