@@ -145,7 +145,7 @@ class ContratoController extends Controller
                 'contratos.desde',
                 'contratos.hasta')
                 ->get();*/
-              $contratos = Contrato::join('empleados', 'empleados.id', '=', 'contratos.id')
+              $contratos = Contrato::join('empleados', 'empleados.id', '=', 'contratos.empleado_id')
               ->select(
               'contratos.id',
               \DB::raw("concat(empleados.nombre, ' ', empleados.apellido) as `Nombre`"),
