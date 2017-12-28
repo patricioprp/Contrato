@@ -88,11 +88,16 @@ class ContratoController extends Controller
      */
     public function update(ContratoRequest $request, $id)
     {
+      try {
       $contrato=Contrato::find($id);
       $contrato->fill($request->all());
       $contrato->save();
       flash("Se actualizo el Contrato  " . $contrato->id. ",".$contrato->tipo." correctamente!")->warning();
        return redirect(route('contrato.index'));
+       }catch (\Illuminate\Database\QueryException $e){
+         flash("ATENCION!!! NO SE EDITO EL CONTRATO N°: ".$contrato->id.".  Ingrese un valor para el campo ESTADO(activo,proximo o finalizado) " )->error();
+          return redirect(route('contrato.index'));
+       }
     }
 
     /**
