@@ -91,6 +91,8 @@ class ContratoController extends Controller
       try {
       $contrato=Contrato::find($id);
       $contrato->fill($request->all());
+      $empleado = Empleado::find($request->empleado);
+      $empleado->contratos()->save($contrato);
       $contrato->save();
       flash("Se actualizo el Contrato  " . $contrato->id. ",".$contrato->tipo." correctamente!")->warning();
        return redirect(route('contrato.index'));
