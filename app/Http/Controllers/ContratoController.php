@@ -150,19 +150,19 @@ class ContratoController extends Controller
               $contratos = Contrato::join('empleados', 'empleados.id', '=', 'contratos.empleado_id')
               ->join('programas','empleados.programa_id', '=', 'programas.id')
               ->select(
-              'contratos.id',
+              'contratos.id as Numero de Contrato',
               \DB::raw("concat(empleados.nombre, ' ', empleados.apellido) as `Nombre del Consultor`"),
-              'empleados.dni',
-              'programas.nombre',
-              'contratos.fondos_origen',
-              'contratos.indicador',
-              'contratos.monto',
-              'contratos.duracion',
-              'contratos.estado',
-              'contratos.tipo',
-              'contratos.actividad',
-              'contratos.desde',
-              'contratos.hasta')
+              'empleados.dni as DNI',
+              'programas.nombre as Programa',
+              'contratos.fondos_origen as Fondos de Origen',
+              'contratos.indicador as Indicador(Dias Restantes)',
+              'contratos.monto as Monto($)',
+              'contratos.duracion as Duracion(Meses)',
+              'contratos.estado as Estado',
+              'contratos.tipo as Tipo',
+              'contratos.actividad as Actividad',
+              'contratos.desde as Desde',
+              'contratos.hasta as Hasta')
               ->get();
                 $sheet->fromArray($contratos);
                 $sheet->setOrientation('landscape');

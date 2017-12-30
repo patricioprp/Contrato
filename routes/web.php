@@ -73,4 +73,4 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 
-Route::get('descargar-productos', 'ContratoController@excel')->name('Listado.excel');
+Route::get('descargar-contratos', 'ContratoController@excel')->name('Listado.excel');

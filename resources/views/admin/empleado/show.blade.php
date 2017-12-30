@@ -5,7 +5,7 @@
   <body>
     <div class="panel panel-default">
       <!-- Default panel contents -->
-      <div class="panel-heading"><h3><p>Informacion del Empleado: <h2>{{$empleado->nombre}}  {{$empleado->apellido}}  |  Reparticion:{{$empleado->distribution->nombre}} </h2></p></h3></div>
+      <div class="panel-heading"><h3><p>Informacion del Empleado: <h2>{{$empleado->nombre}}  {{$empleado->apellido}}  |  Reparticion:{{$empleado->distribution->nombre}} | Programa: {{$empleado->programa->nombre}} </h2></p></h3></div>
       <div class="panel-body">
         <h3><p>Informacion del Contrato</p></h3>
       </div>
