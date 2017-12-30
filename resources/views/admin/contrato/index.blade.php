@@ -10,7 +10,7 @@
         <th>DNI</th>
         <th>APELLIDO</th>
         <th>NOMBRE</th>
-        <th>#</th>
+        <th>PROGRAMA</th>
         <th>FONDOS DE ORIGEN</th>
         <th>INDICADOR<p>(Dias Restantes)</p></th>
         <th>MONTO<p>($)</p></th>
@@ -28,7 +28,7 @@
              <td>{{$contrato->empleado->dni}}</td>
              <td>{{$contrato->empleado->apellido}}</td>
              <td>{{$contrato->empleado->nombre}}</td>
-             <td>{{$contrato->id}}</td>
+             <td>{{$contrato->empleado->programa->nombre}}</td>
              <td>{{$contrato->fondos_origen}}</td>
              <td>{{$contrato->indicador}}</td>
              <td>{{$contrato->monto}}</td>
