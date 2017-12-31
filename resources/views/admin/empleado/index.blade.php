@@ -4,7 +4,7 @@
 @section('empleado','active')
 <h3><b>Modulo de Gestion de Consultor</b></h3>
 <!--BUSCADOR DE CONSULTOR -->
-{!! Form::open(['route'=>'empleado.index','metod'=>'GET', 'class'=> 'navbar-form pull-right']) !!}
+{!! Form::open(['route'=>'empleado.index','method'=>'GET', 'class'=> 'navbar-form pull-right']) !!}
 <div class="input-group">
     {!! Form::text('nombre',null,['class' => 'form-control', 'placeholder'=>'Buscar Consultor',
       'aria-describedby'=>'search']) !!}

@@ -28,12 +28,12 @@
      <div class="form-group col-lg-8">
   {!! Form::label('programa_id','Programa',['class'=>'col-lg-1 control-label']) !!}
          <div class="col-lg-4">
-  {!! Form::select('programa_id',$programas,null,['class' => 'form-control','required']) !!}
+  {!! Form::select('programa_id',$programas,null,['class' => 'form-control','placeholder'=>'SELECCIONE EL PROGRAMA','required']) !!}
 </div></div>
      <div class="form-group col-lg-10">
   {!! Form::label('distribution_id','Reparticion',['class'=>'col-lg-1 control-label']) !!}
            <div class="col-lg-4">
-  {!! Form::select('distribution_id',$reparticiones,null,['class' => 'form-control','required']) !!}
+  {!! Form::select('distribution_id',$reparticiones,null,['class' => 'form-control','placeholder'=>'SELECCIONE LA REPARTICION','required']) !!}
 </div></div>
 <br>
      <div class="form-group col-lg-8">

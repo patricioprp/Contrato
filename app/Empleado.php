@@ -19,7 +19,10 @@ class Empleado extends Model
     public function contratos(){
         return $this->hasMany('\App\Contrato');
     }
-public function getFullAttribute(){
-  return $this->dni.'-'.$this->nombre.'-'.$this->apellido;
-}
+    public function getFullAttribute(){
+       return $this->dni.'-'.$this->nombre.'-'.$this->apellido;
+    }
+    public function scopeSearch($query, $nombre ){
+       return $query->where('nombre', 'LIKE', "%$nombre%");
+    }
 }

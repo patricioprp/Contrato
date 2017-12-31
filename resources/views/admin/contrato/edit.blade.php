@@ -9,7 +9,7 @@
          <div class="form-group col-lg-8">
   {!! Form::label('empleado','Consultor',['class'=>'col-lg-1 control-label']) !!}
          <div class="col-lg-8">
-  {!! Form::select('empleado',$empleado,null,['class' => 'form-control','required']) !!}
+  {!! Form::select('empleado',$empleado,null,['class' => 'form-control','placeholder'=>'SELECCIONE EL CONSULTOR','required']) !!}
 </div></div>
        <div class="form-group col-lg-8">
   {!! Form::label('fondos_origen','Fondos de Origen',['class'=>'col-lg-1 control-label']) !!}
@@ -34,7 +34,7 @@
        <div class="form-group col-lg-6">
   {!! Form::label('estado','Estado',['class'=>'col-lg-1 control-label']) !!}
                <div class="col-lg-8">
-  {!! Form::select('estado',['' => 'Seleccione un Estado', 'activo'=>'activo','proximo'=>'proximo','finalizado'=>'finalizado'],null,['class'=>'form-control']) !!}
+  {!! Form::select('estado',['' => $contrato->estado, 'activo'=>'activo','proximo'=>'proximo','finalizado'=>'finalizado'],null,['class'=>'form-control']) !!}
 </div></div>
        <div class="form-group col-lg-12">
   {!! Form::label('tipo','Tipo(Obra,Serv., etc.)',['class'=>'col-lg-1 control-label']) !!}
