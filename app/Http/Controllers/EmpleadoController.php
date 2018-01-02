@@ -70,7 +70,8 @@ class EmpleadoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   $reparticiones = Distribution::pluck('nombre','id');
+    {
+        $reparticiones = Distribution::pluck('nombre','id');
         $programas = Programa::pluck('nombre','id');
         $empleado=Empleado::find($id);
         return view('admin.empleado.edit')->with('empleado',$empleado)->with('reparticiones',$reparticiones)->with('programas',$programas);

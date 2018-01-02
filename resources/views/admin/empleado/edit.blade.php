@@ -33,7 +33,7 @@
      <div class="form-group col-lg-10">
   {!! Form::label('distribution_id','Reparticion',['class'=>'col-lg-1 control-label']) !!}
            <div class="col-lg-4">
-  {!! Form::select('distribution_id',$reparticiones,null,['class' => 'form-control','placeholder'=>'SELECCIONE LA REPARTICION','required']) !!}
+  {!! Form::select('distribution_id',$reparticiones,null,['class' => 'form-control','placeholder'=>'SELEECIONE UNA REPARTICION','required']) !!}
 </div></div>
 <br>
      <div class="form-group col-lg-8">

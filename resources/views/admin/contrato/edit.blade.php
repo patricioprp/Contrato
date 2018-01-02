@@ -34,7 +34,7 @@
        <div class="form-group col-lg-6">
   {!! Form::label('estado','Estado',['class'=>'col-lg-1 control-label']) !!}
                <div class="col-lg-8">
-  {!! Form::select('estado',['' => $contrato->estado, 'activo'=>'activo','proximo'=>'proximo','finalizado'=>'finalizado'],null,['class'=>'form-control']) !!}
+  {!! Form::select('estado',['' => 'SELECCIONE EL ESTADO', 'activo'=>'activo','proximo'=>'proximo','finalizado'=>'finalizado'],null,['class'=>'form-control']) !!}
 </div></div>
        <div class="form-group col-lg-12">
   {!! Form::label('tipo','Tipo(Obra,Serv., etc.)',['class'=>'col-lg-1 control-label']) !!}
