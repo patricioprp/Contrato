@@ -8,7 +8,7 @@
        <div class="form-group col-lg-8">
   {!! Form::label('empleado','Consultor',['class'=>'col-lg-1 control-label']) !!}
        <div class="col-lg-8">
-  {!! Form::select('empleado',$empleados,null,['class' => 'form-control','required']) !!}
+  {!! Form::select('empleado',$empleados,null,['class' => 'form-control select-empleado','multiple','required']) !!}
 </div></div>
        <div class="form-group col-lg-8">
   {!! Form::label('fondos_origen','Fondos de Origen',['class'=>'col-lg-1 control-label']) !!}
@@ -62,4 +62,13 @@
 </div>
 {!! Form::close() !!}
 
+@endsection
+@section('js')
+<script>
+  $('.select-empleado').chosen({
+no_results_text: "No se encontro ninguna coincidencia con:",
+max_selected_options: 1,
+placeholder_text_multiple: "SELECCIONE UN EMPLEADO"
+  });
+</script>
 @endsection
