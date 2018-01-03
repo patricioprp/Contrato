@@ -76,6 +76,7 @@ class ContratoController extends Controller
     {
         $empleado=Empleado::all()->pluck('full','id');
         $contrato=Contrato::find($id);
+        $contrato->empleado;//esta linea permite cargar las relaciones para que aparezcan los valores de los campos de los select antes de editarlos
         return view('admin.contrato.edit')->with('contrato',$contrato)->with('empleado',$empleado);
     }
 

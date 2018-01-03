@@ -1,6 +1,5 @@
 @include('admin.template.main')
 @section('title','Listar Consultor')
-
 @section('empleado','active')
   <body>
     <div class="panel panel-default">

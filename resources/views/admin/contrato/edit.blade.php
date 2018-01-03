@@ -9,7 +9,7 @@
          <div class="form-group col-lg-8">
   {!! Form::label('empleado','Consultor',['class'=>'col-lg-1 control-label']) !!}
          <div class="col-lg-8">
-  {!! Form::select('empleado',$empleado,null,['class' => 'form-control','placeholder'=>'SELECCIONE EL CONSULTOR','required']) !!}
+  {!! Form::select('empleado',$empleado,$contrato->empleado->id,['class' => 'form-control select-empleado','multiple','required']) !!}
 </div></div>
        <div class="form-group col-lg-8">
   {!! Form::label('fondos_origen','Fondos de Origen',['class'=>'col-lg-1 control-label']) !!}
@@ -34,7 +34,7 @@
        <div class="form-group col-lg-6">
   {!! Form::label('estado','Estado',['class'=>'col-lg-1 control-label']) !!}
                <div class="col-lg-8">
-  {!! Form::select('estado',['' => 'SELECCIONE EL ESTADO', 'activo'=>'activo','proximo'=>'proximo','finalizado'=>'finalizado'],null,['class'=>'form-control']) !!}
+  {!! Form::select('estado',['' => 'SELECCIONE EL ESTADO', 'activo'=>'activo','proximo'=>'proximo','finalizado'=>'finalizado'],$contrato->estado,['class'=>'form-control select-estado','multiple','required']) !!}
 </div></div>
        <div class="form-group col-lg-12">
   {!! Form::label('tipo','Tipo(Obra,Serv., etc.)',['class'=>'col-lg-1 control-label']) !!}
@@ -62,4 +62,20 @@
 </div>
 </div>
 {!! Form::close() !!}
+@endsection
+@section('js')
+<script>
+  $('.select-empleado').chosen({
+no_results_text: "No se encontro ninguna coincidencia con:",
+max_selected_options: 1,
+placeholder_text_multiple: "SELECCIONE UN EMPLEADO"
+  });
+</script>
+<script>
+  $('.select-estado').chosen({
+no_results_text: "No se encontro ninguna coincidencia con:",
+max_selected_options: 1,
+placeholder_text_multiple: "SELECCIONE UN ESTADO"
+  });
+</script>
 @endsection

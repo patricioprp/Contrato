@@ -74,6 +74,8 @@ class EmpleadoController extends Controller
         $reparticiones = Distribution::pluck('nombre','id');
         $programas = Programa::pluck('nombre','id');
         $empleado=Empleado::find($id);
+        $empleado->programa;
+        $empleado->distribution;
         return view('admin.empleado.edit')->with('empleado',$empleado)->with('reparticiones',$reparticiones)->with('programas',$programas);
     }
 
