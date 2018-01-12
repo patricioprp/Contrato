@@ -22,7 +22,7 @@ class Empleado extends Model
     public function getFullAttribute(){
        return $this->dni.'-'.$this->nombre.'-'.$this->apellido;
     }
-    public function scopeSearch($query, $nombre ){
-       return $query->where('nombre', 'LIKE', "%$nombre%");
+    public function scopeSearch($query, $apellido ){
+       return $query->where('apellido', 'LIKE', "%$apellido%");
     }
 }

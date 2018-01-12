@@ -6,7 +6,7 @@
 <!--BUSCADOR DE CONSULTOR -->
 {!! Form::open(['route'=>'empleado.index','method'=>'GET', 'class'=> 'navbar-form pull-right']) !!}
 <div class="input-group">
-    {!! Form::text('nombre',null,['class' => 'form-control', 'placeholder'=>'Buscar Consultor',
+    {!! Form::text('apellido',null,['class' => 'form-control', 'placeholder'=>'Buscar Consultor',
       'aria-describedby'=>'search']) !!}
       <span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
 </div>
