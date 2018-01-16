@@ -12,10 +12,10 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filtrar por... <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Monto total por Programa</a></li>
-            <li><a href="#">Monto total por programa y fecha</a></li>
+            <li><a href="#">Filtro Nº1</a></li>
+            <li><a href="#">Filtro Nº2</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Listar contrato de Obra por empleado</a></li>
+            <li><a href="#">Grafica de Programas</a></li>
           </ul>
         </li>
       </ul>
