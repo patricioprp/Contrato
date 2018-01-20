@@ -19,9 +19,20 @@
 @elseif (Auth::user()->type=='admin')
   @include('admin.template.partials.nav')
   <section>
+    <div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong>@yield('title', 'MDP')</strong>
+        </div>
+        <div class="panel-body">
   @include('flash::message')<!--para que se muestren los mensajes con el paquete flash -->
   @include('admin.template.partials.errors')
     @yield('content')
+  </div>
+</div>
+
+<div class="panel-footer">Ministerio de Desarrollo Productivo © {{date("Y")}} | Todos los derechos reservados </div>
+</div>
   </section>
 @else <h3> <b>{{Auth::user()->name}} </b> Usted es usuario del tipo <b> {{Auth::user()->type}} </b> y no tiene privilegios para ver este contenido...</h3>
   <h3><a href="{{ route('logout') }}"

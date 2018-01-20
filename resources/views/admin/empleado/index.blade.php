@@ -13,7 +13,8 @@
 {!! Form::close() !!}
 <!-- FIN DEL BUSCADOR-->
 <a href="{{ asset('admin/empleado/create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-  <table class="table table-condensed table-bordered table-bordered table-responsive">
+<div class="table-responsive">
+  <table class="table table-condensed table-bordered table-bordered">
     <thead>
       <th>#</th>
       <th>DNI</th>
@@ -42,5 +43,6 @@
 
     </tbody>
   </table>
+</div>
 {!! $empleados->render() !!}
 @endsection

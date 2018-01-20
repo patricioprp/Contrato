@@ -1,6 +1,6 @@
-@include('admin.template.main')
+@extends('admin.template.main')
 @section('title','Ver Consultor')
-
+@section('content')
 @section('empleado','active')
   <body>
     <div class="panel panel-default">
@@ -9,7 +9,7 @@
       <div class="panel-body">
         <h3><p>Informacion del Contrato</p></h3>
       </div>
-
+<div class="table-responsive">
       <!-- Table -->
       <table class="table table-bordered table-condensed table-striped table-responsive table-hover">
         <tr>
@@ -46,3 +46,5 @@
 
       </table>
     </div>
+    </div>
+@endsection

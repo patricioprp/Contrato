@@ -1,8 +1,18 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
+<nav class="navbar navbar-default" role="navigation">
+ <div class="navbar-header">
+  <button type="button" class="navbar-toggle" data-toggle="collapse"
+          data-target=".navbar-ex1-collapse">
+    <span class="sr-only">Desplegar navegación</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="navbar-brand" href="/">Logotipo</a>
+</div>
+
     <!-- Brand and toggle get grouped for better mobile display -->
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav">
         <li class="@yield('empleado')"><a href="{{ asset('admin/empleado')}}">Gestionar Consultor</a></li>
         <li class="@yield('contrato')"><a href="{{ asset('admin/contrato')}}">Gestionar Contrato</a></li>
@@ -35,5 +45,5 @@
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+  <!-- /.container-fluid -->
 </nav>

@@ -4,8 +4,8 @@
   @section('contrato','active')
   <h3><b>Modulo de Gestion de Contrato</b></h3>
   <a href="{{ asset('admin/contrato/create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-
-    <table class="table table-condensed table-bordered table-bordered table-responsive">
+<div class="table-responsive">
+    <table class="table table-condensed table-bordered table-bordered">
       <thead>
         <th>DNI</th>
         <th>APELLIDO</th>
@@ -54,6 +54,7 @@
 
       </tbody>
     </table>
+    <div class="table-responsive">
     <p>
      <a href="{{ route('Listado.excel') }}" class="btn btn-sm btn-primary">
          Descargar en Archivo Excel</a>
