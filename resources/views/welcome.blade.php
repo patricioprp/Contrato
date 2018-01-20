@@ -2,7 +2,7 @@
 
 
 <!-- paso el valor "gestion de contratos" a la variable title que esta definida en un yield en main.blade.php -->
-@section('title','Gestion de contratos')
+@section('title','Informacion Sobre la Aplicacion Web')
 
 @section('content')
   <div class="center"><h1>SISTEMA WEB PARA SEGUIMIENTO DE CONTRATOS</h1></div>

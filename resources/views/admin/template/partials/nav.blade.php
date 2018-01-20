@@ -7,7 +7,7 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="navbar-brand" href="/">Logotipo</a>
+  <a class="navbar-brand" href="/"><img src="http://rides.producciontucuman.gov.ar/wp-content/themes/html5blank-stable/assets/img/logo-mdp-v2.png " srcset="http://rides.producciontucuman.gov.ar/wp-content/themes/html5blank-stable/assets/img/logo-mdp-v2.png 2x" ></a>
 </div>
 
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -31,9 +31,9 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{asset('/')}}">{{ Auth::user()->name }}</a></li>
+        <li><a href="{{asset('/')}}">Pagina Principal</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Salir<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
