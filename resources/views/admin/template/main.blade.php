@@ -19,8 +19,8 @@
 @elseif (Auth::user()->type=='admin')
   @include('admin.template.partials.nav')
   <section>
-    <div class="container">
-    <div class="panel panel-default">
+    <div class="container-fluid">
+    <div class="panel panel-default panel-primary">
         <div class="panel-heading">
             <strong>@yield('title', 'MDP')</strong>
         </div>
