@@ -72,5 +72,5 @@ Route::get('profile', ['middleware' => 'auth', function()
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
-
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 Route::get('descargar-contratos', 'ContratoController@excel')->name('Listado.excel');
