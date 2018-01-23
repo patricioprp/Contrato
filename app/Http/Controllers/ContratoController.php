@@ -168,6 +168,6 @@ class ContratoController extends Controller
                 $sheet->fromArray($contratos);
                 $sheet->setOrientation('landscape');
             });
-        })->download();//->store('xls')->download();//->export('xls');
+        })->store('xls')->download();//->download();->export('xls');
     }
 }
