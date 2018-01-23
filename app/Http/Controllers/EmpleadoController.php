@@ -42,10 +42,16 @@ class EmpleadoController extends Controller
      */
     public function store(EmpleadoRequest $request)
     {
+
+      try {
+
       $empleado = new Empleado($request->all());
 
      $empleado->save();
       flash("Se creo el Consultor " . $empleado->nombre .",".$empleado->apellido. " correctamente!")->success();
+    }catch (\Illuminate\Database\QueryException $e){
+  flash("ATENCION!!! NO SE PUDO CREAR A EL CONSULTOR :".$empleado->nombre. ",".$empleado->apellido." El campo DNI y CUIT solo acepta numeros enteros")->error();
+  }
       return redirect(route('empleado.index'));
     }
 
@@ -88,10 +94,16 @@ class EmpleadoController extends Controller
      */
     public function update(EmpleadoRequest $request, $id)
     {
+      try {
+
       $empleado=Empleado::find($id);
       $empleado->fill($request->all());
       $empleado->save();
       flash("Se actualizo el Consultor  " . $empleado->nombre. ",".$empleado->apellido." correctamente!")->warning();
+      }catch (\Illuminate\Database\QueryException $e){
+  flash("ATENCION!!! NO SE PUDO EDITAR A EL CONSULTOR :".$empleado->nombre. ",".$empleado->apellido." El campo DNI y CUIT solo acepta numeros enteros")->error();
+  }
+
        return redirect(route('empleado.index'));
     }
 
