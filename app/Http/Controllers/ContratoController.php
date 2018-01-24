@@ -123,8 +123,8 @@ class ContratoController extends Controller
          * datos debemos hacer la misma consulta
         **/
         Excel::create('Contratos Excel', function($excel) {
-          set_time_limit(0);
-          ini_set('memory_limit', '1G');
+        /*  set_time_limit(0);
+          ini_set('memory_limit', '1G');*/
             $excel->sheet('Contratos sheet', function($sheet) {
                 //otra opción -> $products = Product::select('nombre')->get();
               //  $contrato = Contrato::all();
