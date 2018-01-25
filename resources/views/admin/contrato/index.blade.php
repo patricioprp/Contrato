@@ -3,6 +3,15 @@
   @section('content')
   @section('contrato','active')
   <h3><b>Modulo de Gestion de Contrato</b></h3>
+  <!--BUSCADOR DE CONTRATO -->
+{!! Form::open(['route'=>'contrato.index','method'=>'GET', 'class'=> 'navbar-form pull-right']) !!}
+<div class="input-group">
+    {!! Form::text('estado',null,['class' => 'form-control', 'placeholder'=>'Estado',
+      'aria-describedby'=>'search']) !!}
+      <span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+</div>
+{!! Form::close() !!}
+<!-- FIN DEL BUSCADOR-->
   <a href="{{ asset('admin/contrato/create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
 <div class="table-responsive">
     <table class="table table-condensed table-bordered table-bordered">

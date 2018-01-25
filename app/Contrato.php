@@ -14,4 +14,8 @@ class Contrato extends Model
       return $this->belongsTo('\App\Empleado');
 
     }
+
+    public function scopeSearch($query, $estado ){
+       return $query->where('estado', 'LIKE', "%$estado%");
+    }
 }

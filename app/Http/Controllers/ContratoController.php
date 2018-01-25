@@ -15,9 +15,9 @@ class ContratoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      $contratos = Contrato::orderBy('id','ASC')->paginate(3);
+      $contratos = Contrato::search($request->estado)->orderBy('id','ASC')->paginate(3);
 
       return view('admin.contrato.index')->with('contratos',$contratos);
     }
