@@ -8,6 +8,13 @@
                 <div class="panel-heading">Ingresar</div>
 
                 <div class="panel-body">
+				
+				@if ($errors->has('notRegister'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('notRegister') }}</strong>
+                                    </span>
+                                @endif
+				
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
