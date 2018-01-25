@@ -118,14 +118,33 @@ class ContratoController extends Controller
     }
     public function excel()
     {
+		
+		 $contratos = Contrato::join('empleados', 'empleados.id', '=', 'contratos.empleado_id')
+              ->join('programas','empleados.programa_id', '=', 'programas.id')
+              ->select(
+              'contratos.id as Numero de Contrato',
+              \DB::raw("concat(empleados.nombre, ' ', empleados.apellido) as `Nombre del Consultor`"),
+              'empleados.dni as DNI',
+              'programas.nombre as Programa',
+              'contratos.fondos_origen as Fondos de Origen',
+              'contratos.indicador as Indicador(Dias Restantes)',
+              'contratos.monto as Monto($)',
+              'contratos.duracion as Duracion(Meses)',
+              'contratos.estado as Estado',
+              'contratos.tipo as Tipo',
+              'contratos.actividad as Actividad',
+              'contratos.desde as Desde',
+              'contratos.hasta as Hasta')
+              ->get();
+			  
         /**
          * toma en cuenta que para ver los mismos
          * datos debemos hacer la misma consulta
         **/
-        Excel::create('Contratos Excel', function($excel) {
+        Excel::create('Contratos Excel', function($excel) use($contratos) {
         /*  set_time_limit(0);
           ini_set('memory_limit', '1G');*/
-            $excel->sheet('Contratos sheet', function($sheet) {
+            $excel->sheet('Contratos sheet', function($sheet)use($contratos)  {
                 //otra opción -> $products = Product::select('nombre')->get();
               //  $contrato = Contrato::all();
             /*  $repeaters = DB::table('Repeater')
@@ -150,23 +169,7 @@ class ContratoController extends Controller
                 'contratos.desde',
                 'contratos.hasta')
                 ->get();*/
-              $contratos = Contrato::join('empleados', 'empleados.id', '=', 'contratos.empleado_id')
-              ->join('programas','empleados.programa_id', '=', 'programas.id')
-              ->select(
-              'contratos.id as Numero de Contrato',
-              \DB::raw("concat(empleados.nombre, ' ', empleados.apellido) as `Nombre del Consultor`"),
-              'empleados.dni as DNI',
-              'programas.nombre as Programa',
-              'contratos.fondos_origen as Fondos de Origen',
-              'contratos.indicador as Indicador(Dias Restantes)',
-              'contratos.monto as Monto($)',
-              'contratos.duracion as Duracion(Meses)',
-              'contratos.estado as Estado',
-              'contratos.tipo as Tipo',
-              'contratos.actividad as Actividad',
-              'contratos.desde as Desde',
-              'contratos.hasta as Hasta')
-              ->get();
+             
                 $sheet->fromArray($contratos);
                 $sheet->setOrientation('landscape');
             });

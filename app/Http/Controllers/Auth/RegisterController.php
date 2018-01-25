@@ -68,4 +68,9 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+	
+	 protected function showRegistrationForm()
+    {
+        return redirect()->to('login')->withErrors(['notRegister'=>'El registro de usuarios está desactivado por el momento']);
+    }
 }
