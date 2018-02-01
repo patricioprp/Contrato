@@ -3,30 +3,35 @@
   @section('content')
   @section('contrato','active')
   <h3><b>Modulo de Gestion de Contrato</b></h3>
-  <!--BUSCADOR DE CONTRATO -->
-{!! Form::open(['route'=>'contrato.index','method'=>'GET', 'class'=> 'navbar-form pull-right']) !!}
-<div class="input-group">
-    {!! Form::text('estado',null,['class' => 'form-control', 'placeholder'=>'Estado',
-      'aria-describedby'=>'search']) !!}
-      <span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-</div>
-{!! Form::close() !!}
-<!-- FIN DEL BUSCADOR-->
+
   <a href="{{ asset('admin/contrato/create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-<div class="table-responsive">
+   {{-- Buscador de tags --}}
+    {!! Form::open(['route' => 'contrato.index', 'method' => 'GET', 'autocomplete' => 'off',
+        'class' => 'navbar-form pull-right', 'id' => 'formSearch']) !!}
+        <div class="input-group">
+            {!! Form::text('estado', null, ['class' => 'form-control', 'placeholder' => 'Buscar']) !!}
+
+            <div class="input-group-btn">
+                <button type="submit" form="formSearch" class="btn btn-default">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+{!! Form::close() !!}
+
     <table class="table table-condensed table-bordered table-bordered">
       <thead>
         <th>DNI</th>
         <th>APELLIDO</th>
         <th>NOMBRE</th>
         <th>PROGRAMA</th>
-        <th>NUMERO DE CONTRATO</th>
+       <!-- <th>NUMERO DE CONTRATO</th> -->
         <th>FONDOS DE ORIGEN</th>
         <th>INDICADOR<p>(Dias Restantes)</p></th>
         <th>MONTO<p>($)</p></th>
         <th>DURACION<p>(Meses)</p></th>
         <th>ESTADO</th>
-        <th>TIPO<p>(obra,servicio, etc.)</p></th>
+        <th>TIPO</th>
         <th>ACTIVIDAD</th>
         <th>DESDE</th>
         <th>HASTA</th>
@@ -39,7 +44,7 @@
              <td>{{$contrato->empleado->apellido}}</td>
              <td>{{$contrato->empleado->nombre}}</td>
              <td>{{$contrato->empleado->programa->nombre}}</td>
-             <td>{{$contrato->id}}</td>
+             
              <td>{{$contrato->fondos_origen}}</td>
              <td>{{$contrato->indicador}}</td>
              <td>{{$contrato->monto}}</td>
@@ -63,7 +68,7 @@
 
       </tbody>
     </table>
-    <div class="table-responsive">
+  
     <p>
      <a href="{{ route('Listado.excel') }}" class="btn btn-sm btn-primary">
          Descargar en Archivo Excel</a>

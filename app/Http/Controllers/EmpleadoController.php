@@ -80,8 +80,8 @@ class EmpleadoController extends Controller
         $reparticiones = Distribution::pluck('nombre','id');
         $programas = Programa::pluck('nombre','id');
         $empleado=Empleado::find($id);
-        $empleado->programa;
-        $empleado->distribution;
+        $empleado->programa;//esta linea permite cargar las relaciones para que aparezcan los valores de los campos de los select antes de editarlos
+        $empleado->distribution;//esta linea permite cargar las relaciones para que aparezcan los valores de los campos de los select antes de editarlos
         return view('admin.empleado.edit')->with('empleado',$empleado)->with('reparticiones',$reparticiones)->with('programas',$programas);
     }
 
