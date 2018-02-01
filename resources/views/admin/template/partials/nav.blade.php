@@ -7,7 +7,7 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="navbar-brand" href="http://producciontucuman.gob.ar"><img src="{{ asset('images/logo.png')}}" srcset="{{ asset('images/logo.png')}} 2x" ></a>
+  <a class="navbar-brand" href="http://producciontucuman.gob.ar"><img src="{{ asset('images/logo.png')}}" srcset="{{ asset('images/logo.png')}} 2x" width="300"></a>
 </div>
 
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -31,7 +31,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{asset('/')}}"><img src="{{asset('images/marca_tucuman.png')}}" srcset="{{asset('images/marca_tucuman.png')}} 2x"></a></li>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}<span class="caret"></span></a>
           <ul class="dropdown-menu">
