@@ -7,7 +7,7 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="navbar-brand" href="http://producciontucuman.gob.ar"><img src="{{ asset('images/logo.png')}}" srcset="{{ asset('images/logo.png')}} 2x" width="300"></a>
+  <a class="navbar-brand" href="http://producciontucuman.gob.ar"><img src="{{ asset('images/logo.png')}}" srcset="{{ asset('images/logo.png')}} 2x" ></a>
 </div>
 
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -35,6 +35,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}<span class="caret"></span></a>
           <ul class="dropdown-menu">
+          <li><a href="{{ asset('/')}}">Pagina Principal</a></li>
             <li><a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">Cerrar Sesion</a>
