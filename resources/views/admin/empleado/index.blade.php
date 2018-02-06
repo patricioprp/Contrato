@@ -42,9 +42,9 @@
            <td>{{$empleado->apellido}}</td>
            <td>{{$empleado->programa->nombre}}</td>
            <td>{{$empleado->distribution->nombre}}</td>
-           <td><a href="{{route('admin.empleado.destroy',$empleado->id)}}" onclick="return confirm('Desea eliminar a {{$empleado->nombre}} {{$empleado->apellido}}?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-               <a href="{{route('empleado.edit',$empleado->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-               <a href="{{route('admin.empleado.show',$empleado->id)}}" class="btn btn-success"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
+           <td><a href="{{route('admin.empleado.destroy',$empleado->id)}}" onclick="return confirm('Desea eliminar a {{$empleado->nombre}} {{$empleado->apellido}}?')" class="btn btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+               <a href="{{route('empleado.edit',$empleado->id)}}" class="btn btn-warning" title="Editar"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+               <a href="{{route('admin.empleado.show',$empleado->id)}}" class="btn btn-success" title="Ver"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
          </tr>
       @endforeach
 

@@ -15,8 +15,8 @@
          <tr>
            <td>{{$prog->id}}</td>
            <td>{{$prog->nombre}}</td>
-           <td><a href="{{route('admin.programa.destroy',$prog->id)}}" onclick="return confirm('Desea eliminar a {{$prog->nombre}}')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-              <a href="{{route('programa.edit',$prog->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+           <td><a href="{{route('admin.programa.destroy',$prog->id)}}" onclick="return confirm('Desea eliminar a {{$prog->nombre}}')" class="btn btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+              <a href="{{route('programa.edit',$prog->id)}}" class="btn btn-warning" title="Editar"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
          </tr>
       @endforeach
 
