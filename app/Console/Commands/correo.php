@@ -18,7 +18,7 @@ class correo extends Command
      *
      * @var string
      */
-    protected $description = 'envia los correos';
+    protected $description = 'envia correo con el vencimiento de los contratos';
 
     /**
      * Create a new command instance.
@@ -37,6 +37,6 @@ class correo extends Command
      */
     public function handle()
     {
-        echo "string";
+        echo "enviando el correo";
     }
 }
