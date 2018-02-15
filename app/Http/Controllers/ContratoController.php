@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Contrato;
 use Illuminate\Http\Request;
 use App\Empleado;
@@ -18,6 +19,7 @@ class ContratoController extends Controller
     public function index(Request $request)
     {
       $contratos = Contrato::search($request->estado)->orderBy('id','ASC')->paginate(3);
+     // $contratos->desde->toFormattedDateString();  
 
       return view('admin.contrato.index')->with('contratos',$contratos);
     }
