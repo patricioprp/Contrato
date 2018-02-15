@@ -7,7 +7,7 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="navbar-brand" href="http://producciontucuman.gob.ar"><img src="{{ asset('images/logo.png')}}" srcset="{{ asset('images/logo.png')}} 2x" ></a>
+  <a class="navbar-brand" rel="home" href="http://producciontucuman.gob.ar"><img src="{{ asset('images/logo.png')}}" style="max-width:200px; margin-top: -7px;" ></a>
 </div>
 
     <!-- Brand and toggle get grouped for better mobile display -->
