@@ -32,7 +32,6 @@ class distributionController extends Controller
 
       $reparticion = new Distribution($request->all());
       $reparticion->save();
-      //return view('admin.distribution.index');
       flash("Se creo la Reparticion " . $reparticion->nombre . " correctamente!")->success();
       return redirect(route('distribution.index'));
 

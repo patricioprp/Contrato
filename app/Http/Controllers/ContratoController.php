@@ -18,10 +18,14 @@ class ContratoController extends Controller
      */
     public function index(Request $request)
     {
+      /*$date = Carbon::now();
+      $date = $date->format('d-m-Y');
+      dd($date);*/
       $contratos = Contrato::search($request->estado)->orderBy('id','ASC')->paginate(3);
-     // $contratos->desde->toFormattedDateString();  
-
       return view('admin.contrato.index')->with('contratos',$contratos);
+      /*$contratos=Contrato::all();
+      $contratos->desde= $contratos->desde->format('d-m-y');
+      dd($contratos->desde)*/
     }
 
     /**
@@ -48,12 +52,7 @@ class ContratoController extends Controller
       $contrato = new Contrato($request->all());
       $empleado = Empleado::find($request->empleado);
       $empleado->contratos()->save($contrato);
-      //$contrato->save();
-    /*  $contrato->empleado()->sync($request->empleados);*/
-    //$contrato->empleado()->associate($request->empleados);
-
       flash("Se creo el Contrato # " . $contrato->id . " correctamente!")->success();
-      //return view('admin.contrato.index');
       return redirect(route('contrato.index'));
     }
 
@@ -118,40 +117,12 @@ class ContratoController extends Controller
       $contrato->forceDelete();
       return redirect(route('contrato.index'));
     }
+
+
     public function excel()
     {
-        /**
-         * toma en cuenta que para ver los mismos
-         * datos debemos hacer la misma consulta
-        **/
         Excel::create('Contratos Excel', function($excel) {
-        /*  set_time_limit(0);
-          ini_set('memory_limit', '1G');*/
             $excel->sheet('Contratos sheet', function($sheet) {
-                //otra opción -> $products = Product::select('nombre')->get();
-              //  $contrato = Contrato::all();
-            /*  $repeaters = DB::table('Repeater')
-                ->join('volcanos', 'Repeater.volcan_id', '=', 'volcan.id')
-                ->join('observatories', 'volcanos.observatorio_id', '=', 'observatories.id')
-                ->get();*/
-               /*$contratos = DB::table('empleados')
-                ->join('programas','empleados.programa_id', '=', 'programas.id')
-                ->join('contratos', 'contratos.empleado_id', '=', 'empleados.id')
-                ->select(
-                'contratos.id',
-                \DB::raw("concat(empleados.nombre, ' ', empleados.apellido) as `Nombre`"),
-                'empleados.dni',
-                'programas.nombre',
-                'contratos.fondos_origen',
-                'contratos.indicador',
-                'contratos.monto',
-                'contratos.duracion',
-                'contratos.estado',
-                'contratos.tipo',
-                'contratos.actividad',
-                'contratos.desde',
-                'contratos.hasta')
-                ->get();*/
               $contratos = Contrato::join('empleados', 'empleados.id', '=', 'contratos.empleado_id')
               ->join('programas','empleados.programa_id', '=', 'programas.id')
               ->select(
