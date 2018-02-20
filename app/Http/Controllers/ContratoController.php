@@ -50,6 +50,8 @@ class ContratoController extends Controller
     public function store(ContratoRequest $request)
     {
       $contrato = new Contrato($request->all());
+      $contrato->desde= \Carbon\Carbon::parse($contrato->desde)->format('Y-m-d');
+      $contrato->hasta= \Carbon\Carbon::parse($contrato->hasta)->format('Y-m-d');
       $empleado = Empleado::find($request->empleado);
       $empleado->contratos()->save($contrato);
       flash("Se creo el Contrato # " . $contrato->id . " correctamente!")->success();
@@ -118,13 +120,15 @@ class ContratoController extends Controller
       return redirect(route('contrato.index'));
     }
 
-
-    public function excel()
+    public function excel(Request $request)
     {
+
+
         Excel::create('Contratos Excel', function($excel) {
             $excel->sheet('Contratos sheet', function($sheet) {
               $contratos = Contrato::join('empleados', 'empleados.id', '=', 'contratos.empleado_id')
               ->join('programas','empleados.programa_id', '=', 'programas.id')
+              ->where('estado', \Request::input('estado'))
               ->select(
               'contratos.id as Numero de Contrato',
               \DB::raw("concat(empleados.nombre, ' ', empleados.apellido) as `Nombre del Consultor`"),
@@ -143,6 +147,6 @@ class ContratoController extends Controller
                 $sheet->fromArray($contratos);
                 $sheet->setOrientation('landscape');
             });
-        })->export('xls');//->store('xls')->download();->export('xls');
+        })->export('xls');
     }
 }
