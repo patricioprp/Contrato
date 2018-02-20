@@ -19,7 +19,7 @@ class ContratoController extends Controller
     public function index(Request $request)
     {
       $contratos = Contrato::search($request->estado)->orderBy('id','ASC')->paginate(3);
-     // $contratos->desde->toFormattedDateString();  
+    //$contratos->desde->toFormattedDateString();
 
       return view('admin.contrato.index')->with('contratos',$contratos);
     }
@@ -118,7 +118,7 @@ class ContratoController extends Controller
       $contrato->forceDelete();
       return redirect(route('contrato.index'));
     }
-    public function excel()
+    public function excel(Request $request)
     {
         /**
          * toma en cuenta que para ver los mismos
@@ -154,6 +154,7 @@ class ContratoController extends Controller
                 ->get();*/
               $contratos = Contrato::join('empleados', 'empleados.id', '=', 'contratos.empleado_id')
               ->join('programas','empleados.programa_id', '=', 'programas.id')
+              ->where('estado', \Request::input('estado'))
               ->select(
               'contratos.id as Numero de Contrato',
               \DB::raw("concat(empleados.nombre, ' ', empleados.apellido) as `Nombre del Consultor`"),
