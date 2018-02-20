@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
 use App\Contrato;
 use Illuminate\Http\Request;
 use App\Empleado;
@@ -120,38 +119,9 @@ class ContratoController extends Controller
     }
     public function excel(Request $request)
     {
-        /**
-         * toma en cuenta que para ver los mismos
-         * datos debemos hacer la misma consulta
-        **/
+
         Excel::create('Contratos Excel', function($excel) {
-        /*  set_time_limit(0);
-          ini_set('memory_limit', '1G');*/
             $excel->sheet('Contratos sheet', function($sheet) {
-                //otra opción -> $products = Product::select('nombre')->get();
-              //  $contrato = Contrato::all();
-            /*  $repeaters = DB::table('Repeater')
-                ->join('volcanos', 'Repeater.volcan_id', '=', 'volcan.id')
-                ->join('observatories', 'volcanos.observatorio_id', '=', 'observatories.id')
-                ->get();*/
-               /*$contratos = DB::table('empleados')
-                ->join('programas','empleados.programa_id', '=', 'programas.id')
-                ->join('contratos', 'contratos.empleado_id', '=', 'empleados.id')
-                ->select(
-                'contratos.id',
-                \DB::raw("concat(empleados.nombre, ' ', empleados.apellido) as `Nombre`"),
-                'empleados.dni',
-                'programas.nombre',
-                'contratos.fondos_origen',
-                'contratos.indicador',
-                'contratos.monto',
-                'contratos.duracion',
-                'contratos.estado',
-                'contratos.tipo',
-                'contratos.actividad',
-                'contratos.desde',
-                'contratos.hasta')
-                ->get();*/
               $contratos = Contrato::join('empleados', 'empleados.id', '=', 'contratos.empleado_id')
               ->join('programas','empleados.programa_id', '=', 'programas.id')
               ->where('estado', \Request::input('estado'))
@@ -173,6 +143,6 @@ class ContratoController extends Controller
                 $sheet->fromArray($contratos);
                 $sheet->setOrientation('landscape');
             });
-        })->export('xls');//->store('xls')->download();->export('xls');
+        })->export('xls');
     }
 }

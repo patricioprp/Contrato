@@ -1,5 +1,4 @@
   @extends('admin.template.main')
-use Carbon\Carbon;
   @section('title','Listado de Contratos')
   @section('content')
   @section('contrato','active')
