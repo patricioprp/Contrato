@@ -95,6 +95,8 @@ class ContratoController extends Controller
       try {
       $contrato=Contrato::find($id);
       $contrato->fill($request->all());
+      $contrato->desde= \Carbon\Carbon::parse($contrato->desde)->format('Y-m-d');
+      $contrato->hasta= \Carbon\Carbon::parse($contrato->hasta)->format('Y-m-d');
       $empleado = Empleado::find($request->empleado);
       $empleado->contratos()->save($contrato);
       $contrato->save();
