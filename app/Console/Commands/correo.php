@@ -60,7 +60,7 @@ class correo extends Command
                 $contrato->estado="activo";
             }
             else
-                if($contrato->indicador<=0)
+                if($contrato->indicador<1)
                 {
                     $contrato->estado="finalizado";
                 }
