@@ -15,11 +15,6 @@
      <div class="col-lg-8">
   {!! Form::text('fondos_origen',null,['class' => 'form-control', 'placeholder'=>'Fondos de Origen','required']) !!}
 </div></div>
-       <div class="form-group col-lg-12">
-  {!! Form::label('indicador','Indicador(Dias restantes)',['class'=>'col-lg-1 control-label']) !!}
-       <div class="col-lg-4">
-  {!! Form::text('indicador',null,['class' => 'form-control', 'placeholder'=>'Indicador','required']) !!}
-</div></div>
        <div class="form-group col-lg-8">
   {!! Form::label('monto','Monto($)',['class'=>'col-lg-1 control-label']) !!}
          <div class="col-lg-8">

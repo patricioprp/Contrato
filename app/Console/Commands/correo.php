@@ -43,7 +43,7 @@ class correo extends Command
 
          foreach ($contratos as $contrato)
          {
-        $fechaDesde = Carbon::parse($contrato->desde);
+        $fechaDesde = Carbon::now();
         $fechaHasta = Carbon::parse($contrato->hasta);
 
         $diasDiferencia = $fechaHasta->diffInDays($fechaDesde);

@@ -18,14 +18,10 @@ class ContratoController extends Controller
      */
     public function index(Request $request)
     {
-      /*$date = Carbon::now();
-      $date = $date->format('d-m-Y');
-      dd($date);*/
-      $contratos = Contrato::search($request->estado)->orderBy('id','ASC')->paginate(3);
+
+      $contratos = Contrato::search($request->estado)->orderBy('estado','ASC')->paginate(5);
       return view('admin.contrato.index')->with('contratos',$contratos);
-      /*$contratos=Contrato::all();
-      $contratos->desde= $contratos->desde->format('d-m-y');
-      dd($contratos->desde)*/
+
     }
 
     /**
@@ -50,8 +46,15 @@ class ContratoController extends Controller
     public function store(ContratoRequest $request)
     {
       $contrato = new Contrato($request->all());
+      //Para que las fechas se guarden en la db en el formato Y-m-d
       $contrato->desde= \Carbon\Carbon::parse($contrato->desde)->format('Y-m-d');
       $contrato->hasta= \Carbon\Carbon::parse($contrato->hasta)->format('Y-m-d');
+      //Para que cacule el indicador(cantidad de dias restantes del contrato)
+        $fechaDesde = Carbon::parse($contrato->desde);
+        $fechaHasta = Carbon::parse($contrato->hasta);
+        $diasDiferencia = $fechaHasta->diffInDays($fechaDesde);
+        $contrato->indicador=$diasDiferencia;
+
       $empleado = Empleado::find($request->empleado);
       $empleado->contratos()->save($contrato);
       flash("Se creo el Contrato # " . $contrato->id . " correctamente!")->success();
@@ -95,8 +98,15 @@ class ContratoController extends Controller
       try {
       $contrato=Contrato::find($id);
       $contrato->fill($request->all());
+      //Para que las fechas se guarden en la db en el formato Y-m-d
       $contrato->desde= \Carbon\Carbon::parse($contrato->desde)->format('Y-m-d');
       $contrato->hasta= \Carbon\Carbon::parse($contrato->hasta)->format('Y-m-d');
+      //Para que cacule el indicador(cantidad de dias restantes del contrato)
+        $fechaDesde = Carbon::parse($contrato->desde);
+        $fechaHasta = Carbon::parse($contrato->hasta);
+        $diasDiferencia = $fechaHasta->diffInDays($fechaDesde);
+        $contrato->indicador=$diasDiferencia;
+
       $empleado = Empleado::find($request->empleado);
       $empleado->contratos()->save($contrato);
       $contrato->save();
