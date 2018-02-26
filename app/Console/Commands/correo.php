@@ -43,11 +43,16 @@ class correo extends Command
 
          foreach ($contratos as $contrato)
          {
-        $fechaDesde = Carbon::now();
+        //SETEANDO INDICADOR    
+        $fechaActual = Carbon::now();
         $fechaHasta = Carbon::parse($contrato->hasta);
-
-        $diasDiferencia = $fechaHasta->diffInDays($fechaDesde);
+        $diasDiferencia = $fechaHasta->diffInDays($fechaActual);
         $contrato->indicador=$diasDiferencia;
+        //SETEANDO DURACION
+        $mesDesde = Carbon::parse($contrato->desde);
+        $mesHasta = Carbon::parse($contrato->hasta);
+        $mesesDiferencia = $mesHasta->diffinDays($mesDesde);
+        $contrato->duracion = $mesesDiferencia;
 
         //volver a consultar las fechas para los estados
         if($contrato->indicador < 16)
@@ -60,9 +65,10 @@ class correo extends Command
                 $contrato->estado="activo";
             }
             else
-                if($contrato->indicador<1)
+                if($fechaActual>\Carbon\Carbon::parse($contrato->hasta)->format('d-m-Y'))
                 {
                     $contrato->estado="finalizado";
+                    $contrato->indicador=0;
                 }
 
         $contrato->save();
