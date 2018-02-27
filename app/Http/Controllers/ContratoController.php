@@ -142,13 +142,13 @@ class ContratoController extends Controller
 
     public function excel(Request $request)
     {
-
+  //dd(\Request::get('estado'));
 
         Excel::create('Contratos Excel', function($excel) {
             $excel->sheet('Contratos sheet', function($sheet) {
               $contratos = Contrato::join('empleados', 'empleados.id', '=', 'contratos.empleado_id')
               ->join('programas','empleados.programa_id', '=', 'programas.id')
-              ->where('estado','Like',\Request::input('%estado%'))
+              ->where('estado','Like','%'.\Request::input('estado').'%')
               ->select(
               'contratos.id as Numero de Contrato',
               \DB::raw("concat(empleados.nombre, ' ', empleados.apellido) as `Nombre del Consultor`"),

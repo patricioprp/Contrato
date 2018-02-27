@@ -73,4 +73,4 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-Route::get('descargar-contratos/{estado}', 'ContratoController@excel')->name('Listado.excel');
+Route::get('descargar-contratos', 'ContratoController@excel')->name('Listado.excel');
