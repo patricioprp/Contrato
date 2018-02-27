@@ -32,9 +32,7 @@ class ContratoController extends Controller
     public function create()
     {
       $empleados = Empleado::all()->pluck('full','id');
-      //dd($empleados[0]->full);
-
-        return view('admin.contrato.create')->with('empleados',$empleados);
+      return view('admin.contrato.create')->with('empleados',$empleados);
     }
 
     /**
@@ -54,6 +52,11 @@ class ContratoController extends Controller
         $fechaHasta = Carbon::parse($contrato->hasta);
         $diasDiferencia = $fechaHasta->diffInDays($fechaDesde);
         $contrato->indicador=$diasDiferencia;
+      //SETEANDO DURACION
+        $mesDesde = Carbon::parse($contrato->desde);
+        $mesHasta = Carbon::parse($contrato->hasta);
+        $mesesDiferencia = $mesHasta->diffinMonths($mesDesde);
+        $contrato->duracion = $mesesDiferencia;
 
       $empleado = Empleado::find($request->empleado);
       $empleado->contratos()->save($contrato);
@@ -106,6 +109,11 @@ class ContratoController extends Controller
         $fechaHasta = Carbon::parse($contrato->hasta);
         $diasDiferencia = $fechaHasta->diffInDays($fechaDesde);
         $contrato->indicador=$diasDiferencia;
+      //SETEANDO DURACION
+        $mesDesde = Carbon::parse($contrato->desde);
+        $mesHasta = Carbon::parse($contrato->hasta);
+        $mesesDiferencia = $mesHasta->diffinMonths($mesDesde);
+        $contrato->duracion = $mesesDiferencia;
 
       $empleado = Empleado::find($request->empleado);
       $empleado->contratos()->save($contrato);
@@ -140,7 +148,7 @@ class ContratoController extends Controller
             $excel->sheet('Contratos sheet', function($sheet) {
               $contratos = Contrato::join('empleados', 'empleados.id', '=', 'contratos.empleado_id')
               ->join('programas','empleados.programa_id', '=', 'programas.id')
-              ->where('estado', \Request::input('estado'))
+              ->where('estado','Like',\Request::input('%estado%'))
               ->select(
               'contratos.id as Numero de Contrato',
               \DB::raw("concat(empleados.nombre, ' ', empleados.apellido) as `Nombre del Consultor`"),

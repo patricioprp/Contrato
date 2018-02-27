@@ -21,11 +21,6 @@
            <div class="col-lg-8">
   {!! Form::text('monto',$contrato->monto,['class' => 'form-control', 'placeholder'=>'Monto','required']) !!}
 </div></div>
-       <div class="form-group col-lg-8">
-  {!! Form::label('duracion','Duracion',['class'=>'col-lg-1 control-label']) !!}
-             <div class="col-lg-8">
-  {!! Form::text('duracion',$contrato->duracion,['class' => 'form-control', 'placeholder'=>'Duracion','required']) !!}
-</div></div>
        <div class="form-group col-lg-6">
   {!! Form::label('estado','Estado',['class'=>'col-lg-1 control-label']) !!}
                <div class="col-lg-8">

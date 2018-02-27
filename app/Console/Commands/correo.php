@@ -51,7 +51,7 @@ class correo extends Command
         //SETEANDO DURACION
         $mesDesde = Carbon::parse($contrato->desde);
         $mesHasta = Carbon::parse($contrato->hasta);
-        $mesesDiferencia = $mesHasta->diffinDays($mesDesde);
+        $mesesDiferencia = $mesHasta->diffinMonths($mesDesde);
         $contrato->duracion = $mesesDiferencia;
 
         //volver a consultar las fechas para los estados
