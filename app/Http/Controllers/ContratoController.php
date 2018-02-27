@@ -19,7 +19,7 @@ class ContratoController extends Controller
     public function index(Request $request)
     {
 
-      $contratos = Contrato::search($request->estado)->orderBy('estado','ASC')->paginate(5);
+      $contratos = Contrato::search($request->estado)->orderBy('estado','DESC')->paginate(5);
       return view('admin.contrato.index')->with('contratos',$contratos);
 
     }
@@ -48,10 +48,10 @@ class ContratoController extends Controller
       $contrato->desde= \Carbon\Carbon::parse($contrato->desde)->format('Y-m-d');
       $contrato->hasta= \Carbon\Carbon::parse($contrato->hasta)->format('Y-m-d');
       //Para que cacule el indicador(cantidad de dias restantes del contrato)
-        $fechaDesde = Carbon::parse($contrato->desde);
+        $fechaDesde = Carbon::now();
         $fechaHasta = Carbon::parse($contrato->hasta);
         $diasDiferencia = $fechaHasta->diffInDays($fechaDesde);
-        $contrato->indicador=$diasDiferencia;
+        $contrato->indicador=$diasDiferencia + 1;
       //SETEANDO DURACION
         $mesDesde = Carbon::parse($contrato->desde);
         $mesHasta = Carbon::parse($contrato->hasta);
@@ -105,10 +105,10 @@ class ContratoController extends Controller
       $contrato->desde= \Carbon\Carbon::parse($contrato->desde)->format('Y-m-d');
       $contrato->hasta= \Carbon\Carbon::parse($contrato->hasta)->format('Y-m-d');
       //Para que cacule el indicador(cantidad de dias restantes del contrato)
-        $fechaDesde = Carbon::parse($contrato->desde);
+        $fechaDesde = Carbon::now();
         $fechaHasta = Carbon::parse($contrato->hasta);
         $diasDiferencia = $fechaHasta->diffInDays($fechaDesde);
-        $contrato->indicador=$diasDiferencia;
+        $contrato->indicador=$diasDiferencia+1;
       //SETEANDO DURACION
         $mesDesde = Carbon::parse($contrato->desde);
         $mesHasta = Carbon::parse($contrato->hasta);

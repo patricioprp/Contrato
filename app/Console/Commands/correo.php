@@ -47,7 +47,7 @@ class correo extends Command
         $fechaActual = Carbon::now();
         $fechaHasta = Carbon::parse($contrato->hasta);
         $diasDiferencia = $fechaHasta->diffInDays($fechaActual);
-        $contrato->indicador=$diasDiferencia;
+        $contrato->indicador=$diasDiferencia+1;
         //SETEANDO DURACION
         $mesDesde = Carbon::parse($contrato->desde);
         $mesHasta = Carbon::parse($contrato->hasta);
