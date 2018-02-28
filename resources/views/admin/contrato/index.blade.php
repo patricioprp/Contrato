@@ -19,7 +19,7 @@
         </div>
 {!! Form::close() !!}
 
-    <table class="table table-condensed table-bordered table-bordered">
+    <table class="table table-condensed table-bordered table-bordered table-hover">
       <thead>
         <th>DNI</th>
         <th>APELLIDO</th>
@@ -60,7 +60,7 @@
              <td>{{$contrato->actividad}}</td>
              <td>{{\Carbon\Carbon::parse($contrato->desde)->format('d-m-Y')}}</td>
              <td>{{\Carbon\Carbon::parse($contrato->hasta)->format('d-m-Y')}}</td>
-             <td><a href="{{route('admin.contrato.destroy',$contrato->id)}}"onclick="return confirm('Desea eliminar a {{$contrato->id}} {{$contrato->tipo}}?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+             <td><a href="{{route('admin.contrato.destroy',$contrato->id)}}"onclick="return confirm('Desea eliminar el contrato de {{$contrato->empleado->nombre}} {{$contrato->empleado->apellido}}?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                  <a href="{{route('contrato.edit',$contrato->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
 
            </tr>
