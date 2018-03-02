@@ -9,6 +9,7 @@
       <div class="panel-body">
         <h3><p>Informacion del Contrato</p></h3>
       </div>
+<div class="col-xs-12">
 <div class="table-responsive">
       <!-- Table -->
       <table class="table table-bordered table-condensed table-striped table-responsive table-hover">
@@ -40,8 +41,8 @@
             @endif
             <td>{{$cont->tipo}}</td>
             <td>{{$cont->actividad}}</td>
-            <td>{{$cont->desde}}</td>
-            <td>{{$cont->hasta}}</td> </tr>
+            <td>{{\Carbon\Carbon::parse($cont->desde)->format('d-m-Y')}}</td>
+            <td>{{\Carbon\Carbon::parse($cont->hasta)->format('d-m-Y')}}</td> </tr>
           @endforeach
 
       </table>

@@ -20,7 +20,8 @@
 {!! Form::close() !!}
 <!-- FIN DEL BUSCADOR-->
 <a href="{{ asset('admin/empleado/create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-<!-- <div class="table-responsive"> -->
+  <div class="col-xs-12">
+<div class="table-responsive">
   <table class="table table-condensed table-bordered table-bordered">
     <thead>
       <th>#</th>
@@ -50,6 +51,7 @@
 
     </tbody>
   </table>
-<!--</div> -->
+</div>
+</div>
 {!! $empleados->render() !!}
 @endsection

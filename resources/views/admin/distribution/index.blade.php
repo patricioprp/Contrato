@@ -4,6 +4,8 @@
 @section('reparticion','active')
 <h3><b>Modulo de Gestion de Reparticion</b></h3>
   <a href="{{ asset('admin/distribution/create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+  <div class="col-xs-12">
+<div class="table-responsive">
   <table class="table table-condensed table-bordered table-bordered table-responsive">
     <thead>
       <th>#</th>
@@ -22,5 +24,8 @@
 
     </tbody>
   </table>
+  </div>
+  </div>
+  <p></p>
 {!! $reparticiones->render() !!}
 @endsection
