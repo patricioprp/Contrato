@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Contrato;
+use App\User;
 class correo extends Command
 {
     /**
@@ -71,7 +72,22 @@ class correo extends Command
                 }
 
         $contrato->save();
+        
+       
         }
 
+
+        /////////////////////MAILS//////////////////////////////////
+        $contratos = Contrato::all();
+
+         foreach ($contratos as $cont)
+         {
+            if($cont->estado=="proximo")
+            
+             return redirect(route('mail.index'));
+            
+         }
+
     }
+
 }

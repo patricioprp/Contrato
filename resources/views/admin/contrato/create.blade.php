@@ -5,8 +5,8 @@
 {!! Form::open(['route' => 'contrato.store','method'=>'POST']) !!}
 
 <div class="form-group">
-       <div class="form-group col-lg-8">
-  {!! Form::label('empleado','Consultor',['class'=>'col-lg-1 control-label']) !!}
+      <div class="form-group col-lg-8">
+  <p> {!! Form::label('empleado','Consultor',['class'=>'col-lg-1 control-label']) !!}</p>
        <div class="col-lg-8">
   {!! Form::select('empleado',$empleados,null,['class' => 'form-control select-empleado','multiple','required']) !!}
 </div></div>
