@@ -15,34 +15,34 @@
      <div class="col-lg-8">
   {!! Form::text('fondos_origen',null,['class' => 'form-control', 'placeholder'=>'Fondos de Origen','required']) !!}
 </div></div>
-       <div class="form-group col-lg-8">
-  {!! Form::label('monto','Monto($)',['class'=>'col-lg-1 control-label']) !!}
-         <div class="col-lg-8">
-  {!! Form::text('monto',null,['class' => 'form-control', 'placeholder'=>'Monto','required']) !!}
+       <div class="form-group col-lg-6">
+  {!! Form::label('monto','Monto',['class'=>'col-lg-1 control-label']) !!}
+         <div class="col-lg-6">
+  {!! Form::text('monto',null,['class' => 'form-control', 'placeholder'=>'Monto($)','required']) !!}
 </div></div>
        <div class="form-group col-lg-6">
   {!! Form::label('estado','Estado',['class'=>'col-lg-1 control-label']) !!}
-             <div class="col-lg-8">
+             <div class="col-lg-6">
   {!! Form::select('estado',['' => 'Seleccione un Estado', 'activo'=>'activo','proximo'=>'proximo','finalizado'=>'finalizado'],null,['class'=>'form-control']) !!}
 </div></div>
-       <div class="form-group col-lg-8">
+       <div class="form-group col-lg-6">
   {!! Form::label('tipo','Tipo',['class'=>'col-lg-1 control-label']) !!}
-  <div class="col-lg-8">
-  {!! Form::text('tipo',null,['class' => 'form-control', 'placeholder'=>'tipo','required']) !!}
+  <div class="col-lg-6">
+  {!! Form::text('tipo',null,['class' => 'form-control', 'placeholder'=>'Tipo','required']) !!}
   </div></div>
-         <div class="form-group col-lg-8">
+         <div class="form-group col-lg-6">
   {!! Form::label('actividad','Actividad',['class'=>'col-lg-1 control-label']) !!}
-    <div class="col-lg-8">
-  {!! Form::text('actividad',null,['class' => 'form-control', 'placeholder'=>'actividad','required']) !!}
+    <div class="col-lg-6">
+  {!! Form::text('actividad',null,['class' => 'form-control', 'placeholder'=>'Actividad','required']) !!}
 </div></div>
-         <div class="form-group col-lg-8">
+         <div class="form-group col-lg-6">
   {!! Form::label('desde','desde',['class'=>'col-lg-1 control-label']) !!}
-      <div class="col-lg-8">
+      <div class="col-lg-6">
   {!! Form::text('desde',null,['class' => 'form-control', 'placeholder'=>'dd-mm-aaaa','required']) !!}
   </div></div>
-           <div class="form-group col-lg-8">
+           <div class="form-group col-lg-6">
   {!! Form::label('hasta','hasta',['class'=>'col-lg-1 control-label']) !!}
-        <div class="col-lg-8">
+        <div class="col-lg-6">
   {!! Form::text('hasta',null,['class' => 'form-control', 'placeholder'=>'dd-mm-aaaa','required']) !!}
   </div></div>
 <br>

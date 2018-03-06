@@ -13,7 +13,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <li class="@yield('empleado')"><a href="{{ asset('admin/empleado')}}"><b>Gestionar Consultor</b></a></li>
         <li class="@yield('contrato')"><a href="{{ asset('admin/contrato')}}"><b>Gestionar Contrato</b></a></li>
         <li class="@yield('reparticion')"><a href="{{ asset('admin/distribution')}}"><b>Gestionar Reparticion</b></a></li>
