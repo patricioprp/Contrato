@@ -74,3 +74,18 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 Route::get('descargar-contratos', 'ContratoController@excel')->name('Listado.excel');
+/////mails////////////////////////////
+Route::get('enviar', ['as' => 'enviar', function () {
+ 
+    $data = ['link' => 'http://styde.net'];
+ 
+    \Mail::send('alerta.mail', $data, function ($message) {
+ 
+        $message->from('mails@producciontucuman.gob.ar', 'Styde.Net');
+ 
+        $message->to('patricioprp06@gmail.com')->subject('Notificación');
+ 
+    });
+ 
+    return "Se envío el email";
+}]);

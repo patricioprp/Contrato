@@ -56,9 +56,9 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'programacion@producciontucuman.gov.ar'),
+        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
 
-        'name' => env('MAIL_FROM_NAME', 'Ministerio de Desarrollo Productivo'),
+        'name' => env('MAIL_FROM_NAME', 'Example'),
 
     ],
 
