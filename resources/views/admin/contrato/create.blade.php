@@ -30,9 +30,9 @@
   <div class="col-lg-6">
   {!! Form::text('tipo',null,['class' => 'form-control', 'placeholder'=>'Tipo','required']) !!}
   </div></div>
-         <div class="form-group col-lg-6">
+         <div class="form-group col-lg-8">
   {!! Form::label('actividad','Actividad',['class'=>'col-lg-1 control-label']) !!}
-    <div class="col-lg-6">
+    <div class="col-lg-8">
   {!! Form::text('actividad',null,['class' => 'form-control', 'placeholder'=>'Actividad','required']) !!}
 </div></div>
          <div class="form-group col-lg-6">
