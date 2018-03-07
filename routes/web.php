@@ -81,9 +81,9 @@ Route::get('enviar', ['as' => 'enviar', function () {
  
     \Mail::send('alerta.mail', $data, function ($message) {
  
-        $message->from('mails@producciontucuman.gob.ar', 'Styde.Net');
+        $message->from('email@styde.net', 'Styde.Net');
  
-        $message->to('patricioprp06@gmail.com')->subject('Notificación');
+        $message->to('user@example.com')->subject('Notificación');
  
     });
  
