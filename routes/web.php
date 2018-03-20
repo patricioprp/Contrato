@@ -65,6 +65,13 @@ Route::get('contrato/{id}/destroy',[
   'as'=>'admin.contrato.destroy'
 ]);
 });
+Route::group(['prefix' => 'admin'], function(){
+Route::resource('comision','ComisionController');
+Route::get('comision/{id}/destroy',[
+  'uses'=>'ComisionController@destroy',
+  'as'=>'admin.comision.destroy'
+]);
+});
 Route::get('profile', ['middleware' => 'auth', function()
 {
     Route::resource('contrato','ContratoController');
@@ -76,16 +83,16 @@ Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 Route::get('descargar-contratos', 'ContratoController@excel')->name('Listado.excel');
 /////mails////////////////////////////
 Route::get('enviar', ['as' => 'enviar', function () {
- 
+
     $data = ['link' => 'http://styde.net'];
- 
+
     \Mail::send('alerta.mail', $data, function ($message) {
- 
+
         $message->from('email@styde.net', 'Styde.Net');
- 
+
         $message->to('user@example.com')->subject('Notificación');
- 
+
     });
- 
+
     return "Se envío el email";
 }]);

@@ -43,11 +43,11 @@ class ContratoController extends Controller
      */
     public function store(ContratoRequest $request)
     {
-      $contrato = new Contrato($request->all());
+        $contrato = new Contrato($request->all());
       //Para que las fechas se guarden en la db en el formato Y-m-d
-      $contrato->desde= \Carbon\Carbon::parse($contrato->desde)->format('Y-m-d');
-      $contrato->hasta= \Carbon\Carbon::parse($contrato->hasta)->format('Y-m-d');
-      $contrato->alerta="si";
+        $contrato->desde= \Carbon\Carbon::parse($contrato->desde)->format('Y-m-d');
+        $contrato->hasta= \Carbon\Carbon::parse($contrato->hasta)->format('Y-m-d');
+        $contrato->alerta="si";
       //Para que cacule el indicador(cantidad de dias restantes del contrato)
         $fechaDesde = Carbon::now();
         $fechaHasta = Carbon::parse($contrato->hasta);
@@ -59,10 +59,10 @@ class ContratoController extends Controller
         $mesesDiferencia = $mesHasta->diffinMonths($mesDesde);
         $contrato->duracion = $mesesDiferencia;
 
-      $empleado = Empleado::find($request->empleado);
-      $empleado->contratos()->save($contrato);
-      flash("Se creo el Contrato # " . $contrato->id . " correctamente!")->success();
-      return redirect(route('contrato.index'));
+        $empleado = Empleado::find($request->empleado);
+        $empleado->contratos()->save($contrato);
+        flash("Se creo el Contrato # " . $contrato->id . " correctamente!")->success();
+        return redirect(route('contrato.index'));
     }
 
     /**
