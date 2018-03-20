@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use App\Comision;
-
+use App\Contrato;
 class ComisionController extends Controller
 {
     /**
@@ -25,7 +24,8 @@ class ComisionController extends Controller
      */
     public function create()
     {
-          return view('admin.comision.create');
+         $contrato = Contrato::all()->pluck('estado','id');
+          return view('admin.comision.create')->with('contrato',$contrato);
     }
 
     /**
