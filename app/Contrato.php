@@ -15,6 +15,11 @@ class Contrato extends Model
 
     }
 
+    public function comisions(){
+        return $this->hasMany('\App\Comision');
+    }
+
+
     public function scopeSearch($query, $estado ){
        return $query->where('estado', 'LIKE', "%$estado%");
     }
