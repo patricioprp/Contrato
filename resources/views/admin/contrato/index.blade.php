@@ -37,7 +37,7 @@
         <th>DESDE</th>
         <th>HASTA</th>
         <th>Accion</th>
-        <th>Alerta</th>
+        <th>Alerta?</th>
       </thead>
       <tbody>
         @foreach ($contratos as $contrato)
