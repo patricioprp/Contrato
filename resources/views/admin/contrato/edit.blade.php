@@ -21,6 +21,11 @@
            <div class="col-lg-6">
   {!! Form::text('monto',$contrato->monto,['class' => 'form-control', 'placeholder'=>'Monto($)','required']) !!}
 </div></div>
+<div class="form-group col-lg-6">
+{!! Form::label('alerta','Alerta',['class'=>'col-lg-1 control-label']) !!}
+        <div class="col-lg-6">
+{!! Form::select('alerta',['' => 'SELECCIONE UNA OPCION', 'si'=>'si','no'=>'no',],$contrato->alerta,['class'=>'form-control select-estado','multiple','required']) !!}
+</div></div>
        <div class="form-group col-lg-6">
   {!! Form::label('estado','Estado',['class'=>'col-lg-1 control-label']) !!}
                <div class="col-lg-6">
