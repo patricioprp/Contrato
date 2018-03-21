@@ -22,9 +22,9 @@ class ComisionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-         $contrato = Contrato::all()->pluck('estado','id');
+         $contrato = Contrato::find($id);
           return view('admin.comision.create')->with('contrato',$contrato);
     }
 

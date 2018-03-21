@@ -71,6 +71,10 @@ Route::get('comision/{id}/destroy',[
   'uses'=>'ComisionController@destroy',
   'as'=>'admin.comision.destroy'
 ]);
+Route::get('comision/create/{id}', [
+  'uses' => 'ComisionController@create',
+  'as' => 'admin.comision.create'
+]);
 });
 Route::get('profile', ['middleware' => 'auth', function()
 {

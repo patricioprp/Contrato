@@ -3,11 +3,7 @@
 @section('content')
 @section('contrato','active')
   {!! Form::open(['route' => 'comision.store','method'=>'POST']) !!}
-  <div class="form-group col-lg-8">
-<p> {!! Form::label('contrato','Contratos',['class'=>'col-lg-1 control-label']) !!}</p>
-   <div class="col-lg-8">
-{!! Form::select('contrato',$contrato,null,['class' => 'form-control select-contrato','multiple','required']) !!}
-</div></div>
+{{dd($contrato->empleado->nombre)}}
   <div class="form-group col-lg-6">
 {!! Form::label('desde','desde',['class'=>'col-lg-1 control-label']) !!}
 <div class="col-lg-6">

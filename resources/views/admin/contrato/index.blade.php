@@ -70,7 +70,8 @@
                  @endif
 
              <td><a href="{{route('admin.contrato.destroy',$contrato->id)}}"onclick="return confirm('Desea eliminar el contrato de {{$contrato->empleado->nombre}} {{$contrato->empleado->apellido}}?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                     <a href="{{route('contrato.edit',$contrato->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a> </td>
+                 <a href="{{route('contrato.edit',$contrato->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a> 
+                <a href="{{route('admin.comision.create',$contrato->id)}}" class="btn btn-success" title="Ver Comisiones"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
            </tr>
         @endforeach
 
