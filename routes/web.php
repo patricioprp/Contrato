@@ -75,6 +75,10 @@ Route::get('comision/create/{id}', [
   'uses' => 'ComisionController@create',
   'as' => 'admin.comision.create'
 ]);
+Route::get('comision/show/{id}', [
+  'uses' => 'ComisionController@show',
+  'as' => 'admin.comision.show'
+]);
 });
 Route::get('profile', ['middleware' => 'auth', function()
 {
