@@ -27,13 +27,13 @@
         <th>NOMBRE</th>
         <th>PROGRAMA</th>
        <!-- <th>NUMERO DE CONTRATO</th> -->
-        <th>FONDOS DE ORIGEN</th>
-        <th>INDICADOR<p>(Dias Restantes)</p></th>
+        <th>FONDOS </th>
+        <th>INDICADOR<!-- <p>(Dias Restantes)</p> --></th>
         <th>MONTO<p>($)</p></th>
         <th>DURACION<p>(Meses)</p></th>
         <th>ESTADO</th>
-        <th>TIPO</th>
-        <th>ACTIVIDAD</th>
+      <!--  <th>TIPO</th>
+        <th>ACTIVIDAD</th> -->
         <th>DESDE</th>
         <th>HASTA</th>
         <th>Alerta</th>
@@ -59,8 +59,7 @@
              @else
                <td class="danger">{{$contrato->estado}}</td>
              @endif
-             <td>{{$contrato->tipo}}</td>
-             <td>{{$contrato->actividad}}</td>
+
              <td>{{\Carbon\Carbon::parse($contrato->desde)->format('d-m-Y')}}</td>
              <td>{{\Carbon\Carbon::parse($contrato->hasta)->format('d-m-Y')}}</td>
                  @if ($contrato->alerta == "si")
@@ -70,7 +69,7 @@
                  @endif
 
              <td><a href="{{route('admin.contrato.destroy',$contrato->id)}}"onclick="return confirm('Desea eliminar el contrato de {{$contrato->empleado->nombre}} {{$contrato->empleado->apellido}}?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                 <a href="{{route('contrato.edit',$contrato->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a> 
+                 <a href="{{route('contrato.edit',$contrato->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                 <a href="{{route('admin.comision.create',$contrato->id)}}" class="btn btn-success" title="Ver Comisiones"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
            </tr>
         @endforeach

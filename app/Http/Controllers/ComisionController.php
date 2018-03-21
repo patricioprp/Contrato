@@ -15,7 +15,8 @@ class ComisionController extends Controller
      */
     public function index()
     {
-        //
+      $comisiones = Comision::orderBy('id','ASC')->paginate(10);
+      return view('admin.comision.index')->with('comisiones',$comisiones);
     }
 
     /**
@@ -67,7 +68,8 @@ class ComisionController extends Controller
      */
     public function edit($id)
     {
-        //
+      $comision=Comision::find($id);
+      return view('admin.comision.edit')->with('comision',$comision);
     }
 
     /**
@@ -90,6 +92,9 @@ class ComisionController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $comision=Comision::find($id);
+      $comision->delete();
+     flash("Se elimino el Comision correctamente!")->error();
+      return redirect(route('comision.index'));
     }
 }
