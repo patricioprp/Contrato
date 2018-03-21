@@ -2,8 +2,8 @@
 @section('title','Crear Comision')
 @section('content')
 @section('contrato','active')
-  {!! Form::open(['route' => 'comision.store','method'=>'POST']) !!}
-{{dd($contrato->empleado->nombre)}}
+  {!! Form::open(['route' => ['comision.store',$contrato],'method'=>'POST']) !!}
+
   <div class="form-group col-lg-6">
 {!! Form::label('desde','desde',['class'=>'col-lg-1 control-label']) !!}
 <div class="col-lg-6">
@@ -22,6 +22,9 @@
 <br>
 <div class="form-group col-lg-8">
   {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
+</div>
+<div class="col-lg-6">
+{!! Form::hidden('id',$contrato->id,['class' => 'form-control','type'=>'hidden','required']) !!}
 </div>
 </div>
 {!! Form::close() !!}

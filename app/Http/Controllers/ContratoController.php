@@ -104,7 +104,7 @@ class ContratoController extends Controller
       try {
       $contrato=Contrato::find($id);
       $contrato->fill($request->all());
-      $contrato->alerta=$request->alerta;
+      //$contrato->alerta=$request->alerta;
       //Para que las fechas se guarden en la db en el formato Y-m-d
       $contrato->desde= \Carbon\Carbon::parse($contrato->desde)->format('Y-m-d');
       $contrato->hasta= \Carbon\Carbon::parse($contrato->hasta)->format('Y-m-d');
