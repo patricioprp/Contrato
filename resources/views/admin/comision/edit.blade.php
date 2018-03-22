@@ -6,7 +6,7 @@
     <!-- Default panel contents -->
     <div class="panel-heading"><h3><p>Informacion del Consultor: <h2>{{$comision->contrato->empleado->nombre}}  {{$comision->contrato->empleado->apellido}}  |  Reparticion:{{$comision->contrato->empleado->distribution->nombre}} | Programa: {{$comision->contrato->empleado->programa->nombre}} </h2></p></h3></div>
     <div class="panel-body">
-    </div>
+
 {!! Form::open(['route' => ['comision.update',$comision],'method'=>'PUT']) !!}
 <div class="form-group">
 <div class="form-group col-lg-6">
@@ -29,6 +29,7 @@
   {!! Form::submit('Editar',['class'=>'btn btn-primary']) !!}
 </div>
 </div>
+    </div>
 {!! Form::close() !!}
 
 @endsection

@@ -91,7 +91,7 @@ class ComisionController extends Controller
       flash("Se actualizo la Comision correctamente!")->warning();
        return redirect(route('contrato.index'));
        }catch (\Illuminate\Database\QueryException $e){
-         flash("ATENCION!!! NO SE EDITO EL COMISION N°: ".$comision->id.".  Ingrese un valor para el campo ESTADO(activo,proximo o finalizado) " )->error();
+         flash("ATENCION!!! NO SE EDITO EL COMISION N°: ".$comision->id.". El texto es demasiado grande " )->error();
           return redirect(route('contrato.index'));
        }
     }
