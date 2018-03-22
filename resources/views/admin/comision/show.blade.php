@@ -2,7 +2,13 @@
 @section('title','Listado de Comisiones')
 @section('content')
 @section('contrato','active')
-<h3><b>Modulo de Gestion de Comisiones</b></h3>
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><h3><p>Informacion del Consultor: <h2>{{$contrato->empleado->nombre}}  {{$contrato->empleado->apellido}}  |  Reparticion:{{$contrato->empleado->distribution->nombre}} | Programa: {{$contrato->empleado->programa->nombre}} </h2></p></h3></div>
+    <div class="panel-body">
+    </div>
+
+<h3><b>Gestion de Comisiones</b></h3>
 <div class="col-xs-12">
 <div class="table-responsive">
     <table class="table table-condensed table-bordered table-bordered table-hover">
@@ -13,7 +19,7 @@
         <th>ACCION</th>
       </thead>
       <tbody>
-        @foreach ($comisiones as $comision)
+        @foreach ($contrato->comisions as $comision)
            <tr>
              <td>{{$comision->desde}}</td>
              <td>{{$comision->hasta}}</td>
@@ -27,5 +33,5 @@
     </table>
  </div>
  </div>
-{!! $comisiones->render() !!}
+
 @endsection

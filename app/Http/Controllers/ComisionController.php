@@ -57,7 +57,8 @@ class ComisionController extends Controller
      */
     public function show($id)
     {
-        //
+      $contrato=Contrato::find($id);
+      return view('admin.comision.show')->with('contrato',$contrato);
     }
 
     /**
@@ -81,7 +82,18 @@ class ComisionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      try {
+      $comision=Comision::find($id);
+      $comision->fill($request->all());
+      $comision->desde= \Carbon\Carbon::parse($comision->desde)->format('Y-m-d');
+      $comision->hasta= \Carbon\Carbon::parse($comision->hasta)->format('Y-m-d');
+      $comision->save();
+      flash("Se actualizo la Comision correctamente!")->warning();
+       return redirect(route('contrato.index'));
+       }catch (\Illuminate\Database\QueryException $e){
+         flash("ATENCION!!! NO SE EDITO EL COMISION N°: ".$comision->id.".  Ingrese un valor para el campo ESTADO(activo,proximo o finalizado) " )->error();
+          return redirect(route('contrato.index'));
+       }
     }
 
     /**
