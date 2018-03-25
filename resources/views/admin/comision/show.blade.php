@@ -7,7 +7,7 @@
     <div class="panel-heading"><h3><p>Informacion del Consultor: <h2>{{$contrato->empleado->nombre}}  {{$contrato->empleado->apellido}}  |  Reparticion:{{$contrato->empleado->distribution->nombre}} | Programa: {{$contrato->empleado->programa->nombre}} </h2></p></h3></div>
     <div class="panel-body">
     </div>
-
+<a href="{{ asset('admin/comision')}}" class="btn btn-sm btn-success"><b>Ver Listado Completo</b></a>
 <h3><b>Gestion de Comisiones</b></h3>
 <div class="col-xs-12">
 <div class="table-responsive">
