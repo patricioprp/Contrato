@@ -53,22 +53,24 @@
              <td>{{$contrato->indicador}}</td>
              <td>{{$contrato->monto}}</td>
              <td>{{$contrato->duracion}}</td>
+             <td>
              @if ($contrato->estado == "activo")
-                <td class="success">{{$contrato->estado}}</td>
+                <h4><span class="label label-success">{{$contrato->estado}}</h4></span>
              @elseif ($contrato->estado == "proximo")
-                <td class="warning">{{$contrato->estado}}</td>
+                <h4><span class="label label-warning">{{$contrato->estado}}</h4></span>
              @else
-               <td class="danger">{{$contrato->estado}}</td>
+               <h4><span class="label label-danger">{{$contrato->estado}}</h4></span>
              @endif
-
+           </td>
              <td>{{\Carbon\Carbon::parse($contrato->desde)->format('d-m-Y')}}</td>
              <td>{{\Carbon\Carbon::parse($contrato->hasta)->format('d-m-Y')}}</td>
+             <td>
                  @if ($contrato->alerta == "si")
-                    <td class="success">{{$contrato->alerta}}</td>
+                    <h4><span class="label label-success">{{$contrato->alerta}}</h4></span>
                  @elseif ($contrato->alerta == "no")
-                    <td class="danger">{{$contrato->alerta}}</td>
+                    <h4><span class="label label-danger">{{$contrato->alerta}}</h4></span>
                  @endif
-
+                </td>
              <td><a href="{{route('admin.contrato.destroy',$contrato->id)}}"onclick="return confirm('Desea eliminar el contrato de {{$contrato->empleado->nombre}} {{$contrato->empleado->apellido}}?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                  <a href="{{route('contrato.edit',$contrato->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
              <td><a href="{{route('admin.comision.create',$contrato->id)}}" class="btn btn-primary" title="Crear Comisiones"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>

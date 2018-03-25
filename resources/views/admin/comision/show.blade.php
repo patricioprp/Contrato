@@ -21,8 +21,8 @@
       <tbody>
         @foreach ($contrato->comisions as $comision)
            <tr>
-             <td>{{$comision->desde}}</td>
-             <td>{{$comision->hasta}}</td>
+             <td>{{\Carbon\Carbon::parse($comision->desde)->format('d-m-Y')}}</td>
+             <td>{{\Carbon\Carbon::parse($comision->hasta)->format('d-m-Y')}}</td>
              <td>{{$comision->observaciones}}</td>
              <td><a href="{{route('admin.comision.destroy',$comision->id)}}"onclick="return confirm('Desea eliminar la Comision?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                  <a href="{{route('comision.edit',$comision->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
