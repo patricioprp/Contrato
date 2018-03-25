@@ -10,13 +10,28 @@
   <body>
 <!-- llama a la seccion nav para mostrar el contenido -->
 @if (empty( Auth::user()->name ))
-  <h3>Usted no esta Logueado</h3>
-  <h3><a href="{{ route('logout') }}"
-      onclick="event.preventDefault();
-               document.getElementById('logout-form').submit();">Iniciar Sesion</a></h3>
-               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                   {{ csrf_field() }}
-               </form>
+  <section>
+    <div class="container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <strong>@yield('title', 'Usted no esta Logueado')</strong>
+        </div>
+        <div class="panel-body">
+          <h3>Usted no esta Logueado</h3>
+          <button type="submit" name="button" class="btn btn-default"><a href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">Iniciar Sesion</a></button>
+                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                           {{ csrf_field() }}
+                       </form>
+
+  </div>
+</div>
+
+<div class="panel-footer text-center"><a href="{{asset('/')}}"><img src="{{asset('images/marca_tucuman.png')}}" srcset="{{asset('images/marca_tucuman.png')}} 2x" width="60"></a> Ministerio de Desarrollo Productivo © {{date("Y")}} | Todos los derechos reservados </div>
+</div>
+  </section>
+
 @elseif (Auth::user()->type=='admin')
   @include('admin.template.partials.nav')
   <section>

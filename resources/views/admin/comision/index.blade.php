@@ -2,7 +2,7 @@
 @section('title','Listado General de Comisiones')
 @section('content')
 @section('contrato','active')
-  <h3><b>Listado de Comisiones</b></h3>
+  <h3><b>Listado General de Comisiones</b></h3>
   <div class="col-xs-12">
   <div class="table-responsive">
       <table class="table table-condensed table-bordered table-bordered table-hover">
@@ -16,8 +16,8 @@
           @foreach ($comisiones as $comision)
              <tr>
                <td>{{$comision->contrato->empleado->apellido}}, {{$comision->contrato->empleado->nombre}}</td>
-               <td>{{$comision->desde}}</td>
-               <td>{{$comision->hasta}}</td>
+               <td>{{\Carbon\Carbon::parse($comision->desde)->format('d-m-Y')}}</td>
+               <td>{{\Carbon\Carbon::parse($comision->hasta)->format('d-m-Y')}}</td>
                <td>{{$comision->observaciones}}</td>
              </tr>
           @endforeach
