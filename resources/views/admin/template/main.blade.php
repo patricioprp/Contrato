@@ -17,10 +17,11 @@
             <strong>@yield('title', 'Usted no esta Logueado')</strong>
         </div>
         <div class="panel-body">
-          <h3>Usted no esta Logueado</h3>
-          <button type="submit" name="button" class="btn btn-default"><a href="{{ route('logout') }}"
+
+<div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"> USTED NO ESTA LOGUEADO</span></div>
+          <a href="{{ route('logout') }}"
               onclick="event.preventDefault();
-                       document.getElementById('logout-form').submit();">Iniciar Sesion</a></button>
+                       document.getElementById('logout-form').submit();" class="btn btn-primary"><b>Iniciar Sesion</b></a>
                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                            {{ csrf_field() }}
                        </form>
