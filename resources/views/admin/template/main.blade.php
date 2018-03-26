@@ -64,7 +64,7 @@
     y no tiene privilegios para ver este contenido.</span></div>
   <h3><a href="{{ route('logout') }}"
       onclick="event.preventDefault();
-               document.getElementById('logout-form').submit();">Cerrar Sesion</a></h3>
+               document.getElementById('logout-form').submit();" class="btn btn-primary">Cerrar Sesion</a></h3>
                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                    {{ csrf_field() }}
                </form>
