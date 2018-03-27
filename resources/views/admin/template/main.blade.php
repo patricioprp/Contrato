@@ -10,8 +10,8 @@
   <body>
 <!-- llama a la seccion nav para mostrar el contenido -->
 <!--Autor : Patricio R. Polito
-    Correo Electronico: patricioprp06@gmail.comision
-    Celular: 3814986358 -->
+    Correo Electronico: patricioprp06@gmail.com
+    Celular: 381-154986358 -->
 @if (empty( Auth::user()->name ))
   <section>
     <div class="container-fluid">
