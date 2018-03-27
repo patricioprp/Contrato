@@ -63,7 +63,8 @@ class ContratoController extends Controller
 
         $empleado = Empleado::find($request->empleado);
         $empleado->contratos()->save($contrato);
-        flash("Se creo el Contrato de: " . $contrato->empleado->nombre.",".$contrato->empleado->apellido. " correctamente!")->success();
+        flash("Se creo el contrato del Consultor: " . $contrato->empleado->apellido .",".$contrato->empleado->nombre. " correctamente!")->success();
+
         return redirect(route('contrato.index'));
     }
 
@@ -122,7 +123,9 @@ class ContratoController extends Controller
       $empleado = Empleado::find($request->empleado);
       $empleado->contratos()->save($contrato);
       $contrato->save();
-      flash("Se actualizo el Contrato  " . $contrato->empleado->nombre. ",".$contrato->empleado->apellido." correctamente!")->warning();
+
+      flash("Se actualizo el Contrato del Consultor: " . $contrato->empleado->apellido.",".$contrato->empleado->nombre. " correctamente!")->warning();
+
        return redirect(route('contrato.index'));
        }catch (\Illuminate\Database\QueryException $e){
          flash("ATENCION!!! NO SE EDITO EL CONTRATO N°: ".$contrato->empleado->nombre.",".$contrato->empleado->apellido.".  Ingrese un valor para el campo ESTADO(activo,proximo o finalizado) " )->error();

@@ -10,13 +10,29 @@
   <body>
 <!-- llama a la seccion nav para mostrar el contenido -->
 @if (empty( Auth::user()->name ))
-  <h3>Usted no esta Logueado</h3>
-  <h3><a href="{{ route('logout') }}"
-      onclick="event.preventDefault();
-               document.getElementById('logout-form').submit();">Iniciar Sesion</a></h3>
-               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                   {{ csrf_field() }}
-               </form>
+  <section>
+    <div class="container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <strong>@yield('title', 'Usted no esta Logueado')</strong>
+        </div>
+        <div class="panel-body">
+
+<div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"> USTED NO ESTA LOGUEADO</span></div>
+          <a href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();" class="btn btn-primary"><b>Iniciar Sesion</b></a>
+                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                           {{ csrf_field() }}
+                       </form>
+
+  </div>
+</div>
+
+<div class="panel-footer text-center"><a href="{{asset('/')}}"><img src="{{asset('images/marca_tucuman.png')}}" srcset="{{asset('images/marca_tucuman.png')}} 2x" width="60"></a> Ministerio de Desarrollo Productivo © {{date("Y")}} | Todos los derechos reservados </div>
+</div>
+  </section>
+
 @elseif (Auth::user()->type=='admin')
   @include('admin.template.partials.nav')
   <section>
@@ -35,13 +51,30 @@
 <div class="panel-footer text-center"><a href="{{asset('/')}}"><img src="{{asset('images/marca_tucuman.png')}}" srcset="{{asset('images/marca_tucuman.png')}} 2x" width="60"></a> Ministerio de Desarrollo Productivo © {{date("Y")}} | Todos los derechos reservados </div>
 </div>
   </section>
-@else <h3> <b>{{Auth::user()->name}} </b> Usted es usuario del tipo <b> {{Auth::user()->type}} </b> y no tiene privilegios para ver este contenido...</h3>
+@else
+  <section>
+    <div class="container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <strong>@yield('title', 'Usted no esta Logueado')</strong>
+        </div>
+        <div class="panel-body">
+          <div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign">
+  <b>{{Auth::user()->name}} </b> Usted es usuario<b> {{Auth::user()->type}} </b>
+    y no tiene privilegios para ver este contenido.</span></div>
   <h3><a href="{{ route('logout') }}"
       onclick="event.preventDefault();
-               document.getElementById('logout-form').submit();">Cerrar Sesion</a></h3>
+               document.getElementById('logout-form').submit();" class="btn btn-primary">Cerrar Sesion</a></h3>
                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                    {{ csrf_field() }}
                </form>
+
+             </div>
+           </div>
+
+           <div class="panel-footer text-center"><a href="{{asset('/')}}"><img src="{{asset('images/marca_tucuman.png')}}" srcset="{{asset('images/marca_tucuman.png')}} 2x" width="60"></a> Ministerio de Desarrollo Productivo © {{date("Y")}} | Todos los derechos reservados </div>
+           </div>
+             </section>
 @endif
 
 

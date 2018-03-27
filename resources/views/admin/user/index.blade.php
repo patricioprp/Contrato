@@ -20,12 +20,13 @@
            <td>{{$user->id}}</td>
            <td>{{$user->name}}</td>
            <td>{{$user->email}}</td>
-
+          <td>
            @if ($user->type == "member")
-              <td class="success">{{$user->type}}</td>
+              <span class="label label-success">{{$user->type}}</span>
            @else
-             <td class="danger">{{$user->type}}</td>
+             <span class="label label-danger">{{$user->type}}</span>
            @endif
+         </td>
            <td><a href="{{route('admin.user.destroy',$user->id)}}" onclick="return confirm('Desea eliminar a {{$user->name}}')" class="btn btn-danger" title="Eliminar"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                <a href="{{route('user.edit',$user->id)}}" class="btn btn-warning" title="Editar"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
          </tr>
