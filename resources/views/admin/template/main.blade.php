@@ -9,6 +9,9 @@
   </head>
   <body>
 <!-- llama a la seccion nav para mostrar el contenido -->
+<!--Autor : Patricio Polito
+    Correo Electronico: patricioprp06@gmail.comision
+    Celular: 3814986358 -->
 @if (empty( Auth::user()->name ))
   <section>
     <div class="container-fluid">
