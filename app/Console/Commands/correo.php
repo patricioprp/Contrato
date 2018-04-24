@@ -72,8 +72,8 @@ class correo extends Command
                 }
 
         $contrato->save();
-        
-       
+
+
         }
 
 
@@ -83,10 +83,11 @@ class correo extends Command
          foreach ($contratos as $cont)
          {
             if($cont->estado=="proximo")
-            
+
              return redirect(route('mail.index'));
-            
+
          }
+
 
     }
 
