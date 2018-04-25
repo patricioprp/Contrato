@@ -87,7 +87,7 @@ class correo extends Command
              return redirect(route('mail.index'));
             
          }
-         /*
+       /*  
       $f=fopen("/home/web/Escritorio/prueba_".microtime().".txt",'w');
       fwrite($f,"hola mundo con crontab");
       fclose($f);*/
