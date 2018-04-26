@@ -68,16 +68,28 @@ class correo extends Command
 
         }
         /////////////////////MAILS//////////////////////////////////
+
         /*$contratos = Contrato::all();
+=======
+        /*       $contratos = Contrato::all();
+
+>>>>>>> 9f351ae3b2867b29c4ecabba8f34db3318a0bc3b
          foreach ($contratos as $cont)
          {
             if($cont->estado=="proximo")
 
              return redirect(route('mail.index'));
 
+
          }*/
 
       /*$f=fopen("/home/web/Escritorio/prueba_".microtime().".txt",'w');
+=======
+
+         }
+
+      $f=fopen("/home/web/Escritorio/prueba_".microtime().".txt",'w');
+>>>>>>> 9f351ae3b2867b29c4ecabba8f34db3318a0bc3b
       fwrite($f,"hola mundo con crontab");
       fclose($f);*/
     }

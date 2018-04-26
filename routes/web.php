@@ -89,7 +89,9 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 Route::get('descargar-contratos', 'ContratoController@excel')->name('Listado.excel');
-/////mails////////////////////////////
+
+
+/////////////////////////////////////mails////////////////////////////
 Route::get('enviar', ['as' => 'enviar', function () {
 
     $data = ['link' => 'http://styde.net'];

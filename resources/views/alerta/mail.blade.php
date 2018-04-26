@@ -8,7 +8,7 @@
       <th>TIPO</th>
       <th>ACCION</th>
     </thead>
-
+{{$user->nombre}}{{$user->email}}{{$user->type}}
   </table>
   </div>
   </div>
