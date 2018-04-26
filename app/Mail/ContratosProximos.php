@@ -18,9 +18,9 @@ class ContratosProximos extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(User $user)
     {
-        //
+        $this->user = $user;
     }
 
     /**
@@ -34,3 +34,4 @@ class ContratosProximos extends Mailable
         return $this->view('alerta.mail')->with('users',$user);
     }
 }
+//https://programacionymas.com/blog/como-enviar-mails-correos-desde-laravel
