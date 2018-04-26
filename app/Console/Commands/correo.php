@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Console\Commands;
-
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -15,14 +13,12 @@ class correo extends Command
      * @var string
      */
     protected $signature = 'correo:enviar';
-
     /**
      * The console command description.
      *
      * @var string
      */
     protected $description = 'envia correo con el vencimiento de los contratos';
-
     /**
      * Create a new command instance.
      *
@@ -32,7 +28,6 @@ class correo extends Command
     {
         parent::__construct();
     }
-
     /**
      * Execute the console command.
      *
@@ -41,7 +36,6 @@ class correo extends Command
     public function handle()
     {
         $contratos = Contrato::all();
-
          foreach ($contratos as $contrato)
          {
         //SETEANDO INDICADOR
@@ -54,7 +48,6 @@ class correo extends Command
         $mesHasta = Carbon::parse($contrato->hasta);
         $mesesDiferencia = $mesHasta->diffinMonths($mesDesde);
         $contrato->duracion = $mesesDiferencia;
-
         //volver a consultar las fechas para los estados
         if($contrato->indicador < 16)
         {
@@ -70,25 +63,22 @@ class correo extends Command
                     $contrato->estado="finalizado";
                     $contrato->indicador=0;
                 }
-
         $contrato->save();
 
 
         }
-
-
         /////////////////////MAILS//////////////////////////////////
-        $contratos = Contrato::all();
-
+        /*$contratos = Contrato::all();
          foreach ($contratos as $cont)
          {
             if($cont->estado=="proximo")
 
              return redirect(route('mail.index'));
 
-         }
+         }*/
 
-
+      /*$f=fopen("/home/web/Escritorio/prueba_".microtime().".txt",'w');
+      fwrite($f,"hola mundo con crontab");
+      fclose($f);*/
     }
-
 }
