@@ -8,7 +8,7 @@
     <div class="panel-body">
 
 {!! Form::open(['route' => ['comision.update',$comision],'method'=>'PUT']) !!}
-<div class="form-group">
+<div class="row">
 <div class="form-group col-lg-6">
 {!! Form::label('desde','desde',['class'=>'col-lg-1 control-label']) !!}
 <div class="col-lg-6">
@@ -19,16 +19,23 @@
  <div class="col-lg-6">
 {!! Form::date('hasta',$comision->hasta,['class' => 'form-control', 'placeholder'=>'aaaa-dd-aa','required']) !!}
 </div></div>
-<div class="form-group col-lg-6">
-{!! Form::label('observaciones','Observaciones',['class'=>'col-lg-1 control-label']) !!}
-<div class="col-lg-6">
-{!! Form::text('observaciones',$comision->observaciones,['class' => 'form-control', 'placeholder'=>'observaciones','required']) !!}
-</div></div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-lg-2">
+    {!! Form::label('observaciones','Observaciones',['class'=>'control-label']) !!}
+  </div>
+    <div class="col-lg-2">
+    {!! Form::textarea('observaciones',$comision->observaciones,['class' => 'form-control', 'rows' => 4, 'cols' => 54, 'style' => 'resize:none', 'placeholder'=>'observaciones','required']) !!}
+
+    </div>
+</div>
+
 <br>
        <div class="form-group col-lg-8">
   {!! Form::submit('Editar',['class'=>'btn btn-primary']) !!}
 </div>
-</div>
+
     </div>
 {!! Form::close() !!}
 

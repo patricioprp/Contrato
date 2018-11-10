@@ -44,7 +44,8 @@
   {!! Form::label('hasta','hasta',['class'=>'col-lg-1 control-label']) !!}
         <div class="col-lg-6">
   {!! Form::date('hasta',null,['class' => 'form-control', 'placeholder'=>'dd-mm-aaaa','required']) !!}
-  </div></div>
+  </div>
+</div>
 <br>
            <div class="form-group col-lg-8">
   {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
