@@ -12,12 +12,12 @@
   <div class="form-group col-lg-6">
 {!! Form::label('desde','Desde',['class'=>'col-lg-1 control-label']) !!}
 <div class="col-lg-6">
-{!! Form::text('desde',null,['class' => 'form-control', 'placeholder'=>'dd-mm-aaaa','required']) !!}
+{!! Form::date('desde',null,['class' => 'form-control', 'placeholder'=>'dd-mm-aaaa','required']) !!}
 </div></div>
     <div class="form-group col-lg-6">
 {!! Form::label('hasta','Hasta',['class'=>'col-lg-1 control-label']) !!}
  <div class="col-lg-6">
-{!! Form::text('hasta',null,['class' => 'form-control', 'placeholder'=>'dd-mm-aaaa','required']) !!}
+{!! Form::date('hasta',null,['class' => 'form-control', 'placeholder'=>'dd-mm-aaaa','required']) !!}
 </div></div>
 <div class="form-group col-lg-8">
 {!! Form::label('observaciones','Observaciones',['class'=>'col-lg-2 control-label']) !!}

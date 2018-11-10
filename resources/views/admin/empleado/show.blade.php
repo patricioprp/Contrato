@@ -1,5 +1,5 @@
 @extends('admin.template.main')
-@section('title','Ver Consultor')
+@section('title','Ver Contratos')
 @section('content')
 @section('empleado','active')
   <body>

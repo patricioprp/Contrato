@@ -12,12 +12,12 @@
 <div class="form-group col-lg-6">
 {!! Form::label('desde','desde',['class'=>'col-lg-1 control-label']) !!}
 <div class="col-lg-6">
-{!! Form::text('desde',\Carbon\Carbon::parse($comision->desde)->format('d-m-Y'),['class' => 'form-control', 'placeholder'=>'aaaa-dd-aa','required']) !!}
+{!! Form::date('desde',$comision->desde,['class' => 'form-control', 'placeholder'=>'aaaa-dd-aa','required']) !!}
 </div></div>
   <div class="form-group col-lg-6">
 {!! Form::label('hasta','hasta',['class'=>'col-lg-1 control-label']) !!}
  <div class="col-lg-6">
-{!! Form::text('hasta',\Carbon\Carbon::parse($comision->hasta)->format('d-m-Y'),['class' => 'form-control', 'placeholder'=>'aaaa-dd-aa','required']) !!}
+{!! Form::date('hasta',$comision->hasta,['class' => 'form-control', 'placeholder'=>'aaaa-dd-aa','required']) !!}
 </div></div>
 <div class="form-group col-lg-6">
 {!! Form::label('observaciones','Observaciones',['class'=>'col-lg-1 control-label']) !!}

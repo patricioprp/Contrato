@@ -44,12 +44,12 @@
          <div class="form-group col-lg-6">
   {!! Form::label('desde','desde',['class'=>'col-lg-1 control-label']) !!}
         <div class="col-lg-6">
-  {!! Form::text('desde',\Carbon\Carbon::parse($contrato->desde)->format('d-m-Y'),['class' => 'form-control', 'placeholder'=>'aaaa-dd-aa','required']) !!}
+  {!! Form::date('desde',$contrato->desde,['class' => 'form-control', 'placeholder'=>'aaaa-dd-aa','required']) !!}
 </div></div>
            <div class="form-group col-lg-6">
   {!! Form::label('hasta','hasta',['class'=>'col-lg-1 control-label']) !!}
           <div class="col-lg-6">
-  {!! Form::text('hasta',\Carbon\Carbon::parse($contrato->hasta)->format('d-m-Y'),['class' => 'form-control', 'placeholder'=>'aaaa-dd-aa','required']) !!}
+  {!! Form::date('hasta',$contrato->hasta,['class' => 'form-control', 'placeholder'=>'aaaa-dd-aa','required']) !!}
 </div></div>
 <br>
            <div class="form-group col-lg-8">
