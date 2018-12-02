@@ -98,9 +98,9 @@ Route::get('enviar', ['as' => 'enviar', function () {
 
     \Mail::send('alerta.mail', $data, function ($message) {
 
-        $message->from('email@styde.net', 'Styde.Net');
+        $message->from('patricioprp06@gmail.com', 'Styde.Net');
 
-        $message->to('user@example.com')->subject('Notificación');
+        $message->to('patricioprp06@gmail.com')->subject('Notificación');
 
     });
 

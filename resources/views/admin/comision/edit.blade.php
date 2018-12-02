@@ -22,12 +22,11 @@
 </div>
 <hr />
 <div class="row">
-  <div class="col-lg-2">
-    {!! Form::label('observaciones','Observaciones',['class'=>'control-label']) !!}
-  </div>
-    <div class="col-lg-2">
-    {!! Form::textarea('observaciones',$comision->observaciones,['class' => 'form-control', 'rows' => 4, 'cols' => 54, 'style' => 'resize:none', 'placeholder'=>'observaciones','required']) !!}
-
+  <div class="form-group col-lg-8">
+    {!! Form::label('observaciones','Observaciones',['class'=>'col-lg-2 control-label']) !!}
+    <div class="col-lg-12">
+    {!! Form::textarea('observaciones',$comision->observaciones,['class' => 'form-control', 'rows' => 4, 'cols' => 54, 'style' => 'resize:none', 'placeholder'=>'Observaciones','required']) !!} 
+    </div>
     </div>
 </div>
 

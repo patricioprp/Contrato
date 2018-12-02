@@ -69,19 +69,18 @@ class correo extends Command
         }
         /////////////////////MAILS//////////////////////////////////
 
-        /*$contratos = Contrato::all();
-=======
-        /*       $contratos = Contrato::all();
+        $contratos = Contrato::all();
 
->>>>>>> 9f351ae3b2867b29c4ecabba8f34db3318a0bc3b
+          $contratos = Contrato::all();
+
          foreach ($contratos as $cont)
          {
             if($cont->estado=="proximo")
 
-             return redirect(route('mail.index'));
+             return redirect(route('enviar'));
 
 
-         }*/
+         }
 
       /*$f=fopen("/home/web/Escritorio/prueba_".microtime().".txt",'w');
 =======

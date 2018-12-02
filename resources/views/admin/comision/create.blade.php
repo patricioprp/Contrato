@@ -23,7 +23,8 @@
 {!! Form::label('observaciones','Observaciones',['class'=>'col-lg-2 control-label']) !!}
 <div class="col-lg-12">
 {!! Form::textarea('observaciones',null,['class' => 'form-control', 'rows' => 4, 'cols' => 54, 'style' => 'resize:none', 'placeholder'=>'Observaciones','required']) !!} 
-</div></div>
+</div>
+</div>
     </div>
 <br>
 <div class="form-group col-lg-8">

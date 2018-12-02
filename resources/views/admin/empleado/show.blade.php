@@ -8,6 +8,7 @@
       <div class="panel-heading"><h3><p>Informacion del Consultor: <h2>{{$empleado->nombre}}  {{$empleado->apellido}}  |  Reparticion:{{$empleado->distribution->nombre}} | Programa: {{$empleado->programa->nombre}} </h2></p></h3></div>
       <div class="panel-body">
         <h3><p>Informacion del Contrato</p></h3>
+        <a href="{{ asset('admin/empleado')}}" class="btn btn-primary">Volver al Listado de Empleados</a>
       </div>
 <div class="col-xs-12">
 <div class="table-responsive">
